@@ -1,4 +1,4 @@
-type Patient = {
+interface Patient {
     firstname: string;
     lastname: string;
     dateOfBirth: Date;
@@ -13,7 +13,7 @@ type Patient = {
 };
 
 
-type Appointment = {
+interface Appointment {
     date: Date;
     caseIdentifier: string;
     nameOfLocation: string;
@@ -28,8 +28,9 @@ enum ProbeResult {
     pos = 2
 }
 
-type Probe = {
+interface Probe {
     creationDate: Date;
     probeDate: Date;
     result : ProbeResult;
+    id: string;
 }
