@@ -8,19 +8,22 @@ interface Patient {
     visitedSuspectRegions: boolean;
     currentSymptoms : string;
     contactToSuspectPersons : boolean;
-    appointments: Array<Appointment>;
-    probes: Array<Probe>;
+    examinations: Array<Examination>;
+   
 };
 
 
-interface Appointment {
+interface Examination {
+    // human readable id
+    id: string;
     date: Date;
-    caseIdentifier: string;
     nameOfLocation: string;
     nameOfContactPerson: string;
     street: string;
     zip: string;
     city: string;
+    documents: Array<String>;
+    probes: Array<Probe>;
 }
 enum ProbeResult {
     unknown = 0,
