@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span>Covid - Check</span>
+        <span class="menu-fill-remaining-space"></span>
+        <span class="align-center"></span>
+        <span class="menu-spacer"></span>
+        <button *ngIf="!isLoggedIn()" mat-flat-button (click)="loginWithGoogle()">Login</button>
+        <span *ngIf="authService.user | async as user">
+            {{user.displayName}}&nbsp;&nbsp;<img [src] ="user.photoURL" class="profile-picture" />
+        </span>
+        <button *ngIf="isLoggedIn()" mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button (click)="logout()" mat-menu-item>
+                <mat-icon>exit_to_app</mat-icon>
+                <span>Logout</span>
+            </button>
+        </mat-menu>
+    </mat-toolbar-row>
+</mat-toolbar>
