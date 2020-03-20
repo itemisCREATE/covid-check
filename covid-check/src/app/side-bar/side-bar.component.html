@@ -1,21 +1,40 @@
-<mat-sidenav-container>
-    <mat-sidenav #sidenav [mode]="'side'" [opened]="true" [fixedInViewport]="true" disallowClose="true">
-      <mat-nav-list>
-        <a mat-list-item [routerLink]="[{ outlets: { sidebar: ['dashboard'] } }]">
-          <mat-icon>dashboard</mat-icon> Übersicht
-        </a>
-        <mat-expansion-panel mat-list-item>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              <mat-icon>fingerprint</mat-icon>&nbsp;
-              Covid Test vereinbaren
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          </mat-expansion-panel>
-        
-      </mat-nav-list>
+<mat-sidenav-container >
+    <mat-sidenav  #sidenav [mode]="'side'" [opened]="true" [fixedInViewport]="true" disallowClose="true">
+        <mat-nav-list>
+            <a mat-list-item>
+                <mat-icon>dashboard</mat-icon> Übersicht
+            </a>
+            <mat-expansion-panel mat-list-item>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon>fingerprint</mat-icon>&nbsp;
+                        Doktor
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <a mat-list-item (click)="createTest()">
+                    <mat-icon>library_books</mat-icon> Test durchführen
+                </a>
+                <a mat-list-item>
+                    <mat-icon>location_on</mat-icon> Dokument zum Test hinzufügen
+                </a>
+            </mat-expansion-panel>
+            <br />
+            <mat-expansion-panel mat-list-item>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon>fingerprint</mat-icon>&nbsp;
+                        Labor
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <a mat-list-item>
+                    <mat-icon>library_books</mat-icon> Testergebnis eintragen
+                </a>
+            </mat-expansion-panel>
+        </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-      <router-outlet name="sidebar"></router-outlet>
+        <router-outlet></router-outlet>
     </mat-sidenav-content>
-  </mat-sidenav-container>
+</mat-sidenav-container>

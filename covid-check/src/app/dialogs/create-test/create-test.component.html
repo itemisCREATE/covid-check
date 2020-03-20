@@ -1,0 +1,16 @@
+<button mat-flat-button mat-dialog-close color="secondary" style="float: right;">X</button>
+<h1 mat-dialog-title>Neuen Test anlegen</h1>
+<mat-horizontal-stepper [linear]=true #stepper>
+  <mat-step label="Patientendaten">
+    </mat-step>
+
+  <mat-step label="Seite 2">
+   
+  </mat-step>
+</mat-horizontal-stepper>
+<mat-dialog-actions align="end">
+  <button mat-flat-button color="primary" *ngIf="stepper.selectedIndex == 0"  (click)="stepper.next()">Weiter</button>
+  <button mat-flat-button color="primary" *ngIf="stepper.selectedIndex == 1" (click)="stepper.previous()">Zurück</button>
+  <span style="flex: 1 1 auto;"></span>
+  <button mat-flat-button color="primary" *ngIf="stepper.selectedIndex == 1" (click)="finish()" style="float: right;">Speichern</button>
+</mat-dialog-actions>

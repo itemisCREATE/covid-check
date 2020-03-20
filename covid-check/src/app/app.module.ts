@@ -16,14 +16,18 @@ import {MatListModule} from '@angular/material/list';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatExpansionModule} from '@angular/material/expansion';
-import {MatToolbarModule} from '@angular/material/toolbar'
-import {MatMenuModule} from '@angular/material/menu'
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatDialogModule, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatStepperModule} from '@angular/material/stepper';
+import { CreateTestComponent } from './dialogs/create-test/create-test.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SideBarComponent,
-    NavBarComponent
+    NavBarComponent,
+    CreateTestComponent
   ],
   imports: [
     BrowserModule,
@@ -37,9 +41,22 @@ import {MatMenuModule} from '@angular/material/menu'
     MatButtonModule,
     MatExpansionModule,
     MatToolbarModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule,
+    MatStepperModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+    {
+
+      provide: MatDialogRef,
+      useValue: {}
+    },
+  ],
+  bootstrap: [AppComponent],
+  entryComponents : [
+    CreateTestComponent
+  ]
 })
 export class AppModule { }
+

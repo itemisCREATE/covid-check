@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateTestComponent } from '../dialogs/create-test/create-test.component';
 
 @Component({
   selector: 'app-side-bar',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
+  createTest() {
+    const dialogRef = this.dialog.open(CreateTestComponent, {
+      data: 'data'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        //TODO:
+        console.log('result');
+      }
+    });
+  }
 }
