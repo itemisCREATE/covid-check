@@ -1,2 +1,6 @@
 <app-nav-bar></app-nav-bar>
-<app-side-bar></app-side-bar>
+<app-side-bar *ngIf="isLoggedIn(); else notLoggedIn"></app-side-bar>
+
+<ng-template #notLoggedIn>
+    Bitte melden Sie sich an
+</ng-template>

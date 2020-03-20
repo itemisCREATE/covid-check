@@ -6,7 +6,7 @@
         <span class="menu-spacer"></span>
         <button *ngIf="!isLoggedIn()" mat-flat-button (click)="loginWithGoogle()">Login</button>
         <span *ngIf="authService.user | async as user">
-            {{user.displayName}}&nbsp;&nbsp;<img [src] ="user.photoURL" class="profile-picture" />
+            {{user.displayName}}&nbsp;&nbsp;<!-- <img [src] ="user.photoURL" class="profile-picture" /> -->
         </span>
         <button *ngIf="isLoggedIn()" mat-icon-button [matMenuTriggerFor]="menu">
             <mat-icon>more_vert</mat-icon>
