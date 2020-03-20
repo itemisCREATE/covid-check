@@ -21,6 +21,7 @@ import {MatDialogModule, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/
 import {MatMenuModule} from '@angular/material/menu';
 import {MatStepperModule} from '@angular/material/stepper';
 import { CreateTestComponent } from './dialogs/create-test/create-test.component';
+import { QRCodeModule } from 'angular2-qrcode';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { CreateTestComponent } from './dialogs/create-test/create-test.component
     MatToolbarModule,
     MatMenuModule,
     MatDialogModule,
-    MatStepperModule
+    MatStepperModule,
+    QRCodeModule
   ],
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {} },
