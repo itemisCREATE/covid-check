@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "yakinduvirus": {
+      "hosting": {
+        "covid-check": [
+          "yakinduvirus"
+        ]
+      }
+    }
+  }
+}
