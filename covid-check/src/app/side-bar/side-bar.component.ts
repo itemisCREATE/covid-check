@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateTestComponent } from '../dialogs/create-test/create-test.component';
 import { CreatePatientComponent } from '../create-patient/create-patient.component';
+import { FileUploadComponent } from "../shared/file-upload/file-upload.component";
 import { Router } from '@angular/router';
 
 @Component({
@@ -30,6 +31,18 @@ export class SideBarComponent implements OnInit {
 
   createTest() {
     const dialogRef = this.dialog.open(CreateTestComponent, {
+      data: 'data'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        //TODO:
+        console.log('result');
+      }
+    });
+  }
+
+  createUpload() {
+    const dialogRef = this.dialog.open(FileUploadComponent, {
       data: 'data'
     });
     dialogRef.afterClosed().subscribe(result => {
