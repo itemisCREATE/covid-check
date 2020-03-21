@@ -1,3 +1,4 @@
+import 'package:covidcheckmobile/service/patient_service.dart';
 import 'package:flutter/material.dart';
 
 import 'package:covidcheckmobile/screens/wizard/wizard.dart';
@@ -19,6 +20,7 @@ class SubmitForm extends StatefulWidget {
 }
 
 class SubmitFormState extends State<SubmitForm>{
+  final PatientService service =PatientService();
   PageController controller;
   final int index;
 
@@ -31,6 +33,7 @@ class SubmitFormState extends State<SubmitForm>{
 
   @override
   Widget build(BuildContext context) {
+
     Patient patient = Wizard.of(context).patient;
 
 
@@ -57,7 +60,7 @@ class SubmitFormState extends State<SubmitForm>{
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
                                   Text("Name: "),
-                                  Text("${patient.firstName} ${patient.lastName}")
+                                  Text("${patient.firstname} ${patient.lastname}")
                                 ],),
                               ),
                               Container(
@@ -141,6 +144,7 @@ class SubmitFormState extends State<SubmitForm>{
   }
 
   void submitData() {
-    // Submit data to firebase DB
+    service.submitPatient(Wizard.of(context).patient, Wizard.of(context).user);
+
   }
 }

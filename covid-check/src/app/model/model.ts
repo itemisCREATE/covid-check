@@ -1,10 +1,10 @@
 export interface Patient {
     id: string;
     // inspired by RKI form = Aktenzeichen
-    fileNumber: string;
+    filenumber: string;
     firstname: string;
     lastname: string;
-    dateOfBirth: firebase.firestore.Timestamp;
+    dateofbirth: firebase.firestore.Timestamp;
     street: string;
     zip: string;
     city: string;

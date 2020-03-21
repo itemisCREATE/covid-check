@@ -1,3 +1,4 @@
+import 'package:covidcheckmobile/screens/main/dashboard.dart';
 import 'package:covidcheckmobile/screens/wizard/wizard.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -5,17 +6,14 @@ import 'package:provider/provider.dart';
 import 'package:covidcheckmobile/widget/auth.dart';
 import 'package:covidcheckmobile/screens/login/login.dart';
 
-void main() => runApp(
-    ChangeNotifierProvider<Authentication>(
+void main() => runApp(ChangeNotifierProvider<Authentication>(
       child: CovidCheck(),
       create: (BuildContext context) {
         return Authentication();
       },
-    )
-);
+    ));
 
 class CovidCheck extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -45,19 +43,20 @@ class CovidCheckHome extends StatefulWidget {
 }
 
 class _CovidCheckHomeState extends State<CovidCheckHome> {
-
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<FirebaseUser>(
-     future: Provider.of<Authentication>(context).getUser(),
-      builder: (context, AsyncSnapshot<FirebaseUser> snapshot){
-       if(snapshot.connectionState == ConnectionState.done){
-         if(snapshot.error != null){
-           return Text(snapshot.error.toString());
-         }
-       }
-       return snapshot.hasData ?  Wizard(snapshot.data) : Wizard(snapshot.data);
+      future: Provider.of<Authentication>(context).getUser(),
+      builder: (context, AsyncSnapshot<FirebaseUser> snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          if (snapshot.error != null) {
+            return Text(snapshot.error.toString());
+          }
+        }
+        return snapshot.hasData
+            ? Dashboard(snapshot.data)
+            : LoginScreen();
       },
-     );
+    );
   }
 }
