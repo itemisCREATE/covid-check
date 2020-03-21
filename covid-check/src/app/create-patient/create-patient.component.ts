@@ -5,6 +5,8 @@ import { PatientService } from '../service/patient.service';
 import { Patient, Gender } from '../model/model';
 import PlaceResult = google.maps.places.PlaceResult;
 import { MatDatepicker } from '@angular/material/datepicker';
+import { concat } from 'rxjs';
+import { concatAll } from 'rxjs/operators';
 
 @Component({
   selector: 'app-create-patient',
@@ -41,8 +43,12 @@ export class CreatePatientComponent implements OnInit {
     const patient: Patient = {
       firstname: this.firstname.nativeElement.value, 
       lastname: this.lastname.nativeElement.value,
-      city: 'Lünen',
-      fileNumber: '1', street: 'Test Str. 1', zip: '', id: '', gender: Gender.d
+      city: this.placeResult.address_components[4].long_name,
+      fileNumber: '1', 
+      street: this.placeResult.address_components[1].long_name + this.placeResult.address_components[0].long_name, 
+      zip: this.placeResult.address_components[6].long_name, 
+      id: '', 
+      gender: Gender.d
     } as undefined as Patient;
     this.patientService.addItem(patient);
     this.dialogRef.close();
@@ -50,7 +56,7 @@ export class CreatePatientComponent implements OnInit {
 
   onAutocompleteSelected(result: PlaceResult) {
     this.placeResult = result;
-
+    console.log(this.placeResult.address_components)
   }
   onLocationSelected(location: Location) {
     this.latitude = location.latitude;
