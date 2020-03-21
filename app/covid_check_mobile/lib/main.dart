@@ -50,14 +50,13 @@ class _CovidCheckHomeState extends State<CovidCheckHome> {
   Widget build(BuildContext context) {
     return FutureBuilder<FirebaseUser>(
      future: Provider.of<Authentication>(context).getUser(),
-      // ignore: missing_return
       builder: (context, AsyncSnapshot<FirebaseUser> snapshot){
        if(snapshot.connectionState == ConnectionState.done){
          if(snapshot.error != null){
            return Text(snapshot.error.toString());
          }
        }
-       return /*snapshot.hasData ? */ Wizard(snapshot.data)/* : LoginScreen()*/;
+       return snapshot.hasData ?  Wizard(snapshot.data) : LoginScreen();
       },
      );
   }
