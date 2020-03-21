@@ -2,28 +2,27 @@ import 'package:flutter/material.dart';
 
 import 'title.dart';
 
-class NameForm extends StatefulWidget {
+class ContactForm extends StatefulWidget {
 
   final PageController controller;
   final int index;
 
-  NameForm(this.index, this.controller);
+  ContactForm(this.index, this.controller);
 
   @override
   State<StatefulWidget> createState() {
-    return NameFormState(this.index, this.controller);
+    return ContactFormState(this.index, this.controller);
   }
 }
 
-class NameFormState extends State<NameForm>{
+class ContactFormState extends State<ContactForm>{
   PageController controller;
   final int index;
-  
-  String title;
-  String surname;
-  String lastname;
 
-  NameFormState(this.index, this.controller);
+  String email;
+  String phone;
+
+  ContactFormState(this.index, this.controller);
 
   final _formKey = GlobalKey<FormState>();
 
@@ -40,23 +39,18 @@ class NameFormState extends State<NameForm>{
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        FormTitle("Anrede und Name", index),
+                        FormTitle("Bitte geben Sie ihre E-Mail und Telefonnummer an damit wir Sie kontaktieren können", index),
                         SizedBox(height: 20.0),
                         TextFormField(
-                            onSaved: (value) => title = value,
+                            onSaved: (value) => email = value,
                             keyboardType: TextInputType.text,
                             decoration:
-                            InputDecoration(labelText: "Anrede")),
+                            InputDecoration(labelText: "Email")),
                         SizedBox(height: 20.0),
                         TextFormField(
-                            onSaved: (value) => surname = value,
+                            onSaved: (value) => phone = value,
                             decoration:
-                            InputDecoration(labelText: "Vorname")),
-                        SizedBox(height: 20.0),
-                        TextFormField(
-                            onSaved: (value) => lastname = value,
-                            decoration:
-                            InputDecoration(labelText: "Nachname")),
+                            InputDecoration(labelText: "Telefonnummer")),
                         SizedBox(height: 20.0),
                       ]
                   )

@@ -5,27 +5,25 @@ import 'title.dart';
 class Question extends StatefulWidget {
 
   final PageController controller;
-  final String question;
   final int index;
 
-  Question(this.index, this.question, this.controller);
+  Question(this.index, this.controller);
 
   @override
   State<StatefulWidget> createState() {
-    return QuestionState(this.index, this.question, this.controller);
+    return QuestionState(this.index, this.controller);
   }
 }
 
 class QuestionState extends State<Question>{
   final PageController controller;
   final int index;
-  final String title;
+
   bool symptoms;
   bool contact;
   bool riskarea;
 
-
-  QuestionState(this.index, this.title, this.controller);
+  QuestionState(this.index, this.controller);
 
   final _formKey = GlobalKey<FormState>();
 
@@ -42,7 +40,7 @@ class QuestionState extends State<Question>{
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        FormTitle(this.title, this.index),
+                        FormTitle("Noch ein paar Fragen", this.index),
                         SizedBox(height: 20.0),
                         Column(
                           children: <Widget>[
