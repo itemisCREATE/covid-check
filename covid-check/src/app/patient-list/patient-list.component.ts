@@ -6,6 +6,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { DatePipe } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateTestComponent } from '../dialogs/create-test/create-test.component';
 
 @Component({
   selector: 'app-patient-list',
@@ -18,7 +20,7 @@ export class PatientListComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
-  constructor(private patientService: PatientService) {
+  constructor(private patientService: PatientService, private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -28,6 +30,39 @@ export class PatientListComponent implements OnInit {
     });
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
+  }
+
+  dateOfBirthNullSafe(p:Patient){
+    if(p.dateOfBirth!=null){
+      return p.dateOfBirth.toDate();
+    } else {
+      return null;
+    }
+  }
+
+  createTest() {
+    const dialogRef = this.dialog.open(CreateTestComponent, {
+      data: 'data'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        //TODO:
+        console.log('result');
+      }
+    });
+  }
+
+  linkToExamination(p:Patient){
+    var e:Examination;
+    if(p.examinations!=null && p.examinations.filter((e)=>{return e.status==ExaminationStatus.probeOutstanding}).length>0){
+      e=p.examinations.filter((e)=>{return e.status==ExaminationStatus.probeOutstanding})[0];
+    }
+    
+    if(e!=null){
+      return 'Examination ' + e.id;
+    }else {
+      return 'Create New';
+    }
   }
 
   applyFilter(event: Event) {

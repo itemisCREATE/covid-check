@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "XXX",
-    mapsApiKey : "XXX",
+    apiKey: "AIzaSyAo0aT3edNeaJIHyDZ9ldX_9w8jt6LTukw",
+    mapsApiKey : "AIzaSyAKjZ7R205mqXgPURkW9n_iAcO3r3lMRFM",
     authDomain: "yakinduvirus.firebaseapp.com",
     databaseURL: "https://yakinduvirus.firebaseio.com",
     projectId: "yakinduvirus",
