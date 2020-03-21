@@ -50,7 +50,7 @@ import { HumanReadableExaminationListPipe } from './pipes/human-readable-examina
     PatientListComponent,
     HomeComponent,
     FooterComponent,
-    PortfolioComponent
+    PortfolioComponent,
     HumanReadableExaminationListPipe
   ],
   imports: [
