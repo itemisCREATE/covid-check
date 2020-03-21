@@ -1,80 +1,49 @@
 <button mat-flat-button mat-dialog-close color="secondary" style="float: right;">X</button>
 <h1 mat-dialog-title>Neuen Test anlegen</h1>
 <mat-horizontal-stepper [linear]=true #stepper>
-        <mat-step label="Patientendaten">
-                <form class="example-form">
-                  <mat-form-field class="example-full-width">
-                    <mat-label>Name</mat-label>
-                    <input matInput placeholder="Mustermann" value="Mustermann">
-                  </mat-form-field>
-            
-                  <mat-form-field class="example-full-width">
-                    <mat-label>Vorname</mat-label>
-                    <input matInput placeholder="Max" value="Max">
-                  </mat-form-field>
-            
-                  <mat-checkbox>Erkrankt?</mat-checkbox>
-            
-                  <mat-form-field>
-                    <mat-label>Geburtsdatum</mat-label>
-                    <input matInput [matDatepicker]="birthdatepicker">
-                    <mat-datepicker-toggle matSuffix [for]="birthdatepicker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
-                  </mat-form-field>
-            
-                  <mat-radio-group aria-label="Geschlecht">
-                    <mat-radio-button value="1">Männlich</mat-radio-button>
-                    <mat-radio-button value="2">Weiblich</mat-radio-button>
-                    <mat-radio-button value="2">Divers</mat-radio-button>
-                  </mat-radio-group>
-            
-                  <mat-form-field class="example-full-width">
-                    <mat-label>Straße</mat-label>
-                    <input matInput placeholder="Straße" value="">
-                  </mat-form-field>
-            
-                  <mat-form-field class="example-full-width">
-                    <mat-label>Hausnummer</mat-label>
-                    <input matInput placeholder="1" value="">
-                  </mat-form-field>
-            
-                  <mat-form-field class="example-full-width">
-                    <mat-label>PLZ</mat-label>
-                    <input matInput placeholder="11111" value="11111">
-                  </mat-form-field>
-            
-                  <mat-form-field class="example-full-width">
-                    <mat-label>Ort</mat-label>
-                    <input matInput placeholder="Musterhausen" value="Musterhausen">
-                  </mat-form-field>
-            
-                  <h4>Symptome</h4>
-                  <mat-form-field>
-                    <select matNativeControl required>
-                      <option value="durchfall">Durchfall</option>
-                      <option value="erbrechen">Erbrechen</option>
-                      <option value="fieber">Fieber</option>
-                      <option value="bauchschmerzen">Krampfartige Bauchschmerzen</option>
-                      <option value="husten">Husten</option>
-                    </select>
-                  </mat-form-field>
-            
-                  <mat-form-field>
-                    <mat-label>Symptom-Beginn</mat-label>
-                    <input matInput [matDatepicker]="symptomdatepicker">
-                    <mat-datepicker-toggle matSuffix [for]="symptomdatepicker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
-                  </mat-form-field>
-            
-                  <mat-checkbox>Hospitalisiert?</mat-checkbox>
-            
-                  <mat-form-field class="example-full-width">
-                    <mat-label>Weitere Informationen zum Patienten</mat-label>
-                    <textarea matInput placeholder="Weitere Informationen, wie Vorerkrankungen"></textarea>
-                  </mat-form-field>
-            
-                </form>
-              </mat-step>
+    <mat-step label="Stammdaten">
+        <form class="example-form">
+
+            <mat-radio-group aria-label="Geschlecht">
+                <mat-radio-button value="1">Männlich</mat-radio-button>
+                <mat-radio-button value="2">Weiblich</mat-radio-button>
+                <mat-radio-button value="2">Divers</mat-radio-button>
+            </mat-radio-group>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Mustermann" value="Mustermann">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Vorname</mat-label>
+                <input matInput placeholder="Max" value="Max">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Geburtsdatum</mat-label>
+                <input matInput [matDatepicker]="birthdatepicker">
+                <mat-datepicker-toggle matSuffix [for]="birthdatepicker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+        </form>
+    </mat-step>
+    <mat-step label="Adresse">
+
+        <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom" mapTypeId="hybrid"
+            [zoomControl]="false" [streetViewControl]="false">
+            <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+        </agm-map>
+        <mat-google-maps-autocomplete country="de" type="address" addressLabelText="Bitte geben Sie die Adresse ein"
+        (onAutocompleteSelected)="onAutocompleteSelected($event)" (onLocationSelected)="onLocationSelected($event)">
+      </mat-google-maps-autocomplete>
+      <br />
+    </mat-step>
+
+    <mat-step label="Kontaktdaten">
+
+    </mat-step>
 </mat-horizontal-stepper>
 <mat-dialog-actions align="end">
     <button mat-flat-button color="primary" *ngIf="stepper.selectedIndex == 0" (click)="stepper.next()">Weiter</button>

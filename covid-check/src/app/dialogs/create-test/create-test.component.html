@@ -2,12 +2,30 @@
 <h1 mat-dialog-title>Neuen Test anlegen</h1>
 <mat-horizontal-stepper [linear]=true #stepper>
   <mat-step label="Patientendaten">
-    <form class="example-form">
-      <mat-form-field class="example-full-width">
-        <mat-label>Name</mat-label>
-        <input matInput placeholder="Mustermann" value="Mustermann">
-      </mat-form-field>
-    </form>
+    <h4>Symptome</h4>
+    <mat-form-field>
+        <select matNativeControl required>
+            <option value="durchfall">Durchfall</option>
+            <option value="erbrechen">Erbrechen</option>
+            <option value="fieber">Fieber</option>
+            <option value="bauchschmerzen">Krampfartige Bauchschmerzen</option>
+            <option value="husten">Husten</option>
+        </select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <!-- <mat-label>Symptom-Beginn</mat-label>
+        <input matInput [matDatepicker]="symptomdatepicker">
+        <mat-datepicker-toggle matSuffix [for]="symptomdatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker> -->
+    </mat-form-field>
+
+    <mat-checkbox>Hospitalisiert?</mat-checkbox>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Weitere Informationen zum Patienten</mat-label>
+        <textarea matInput placeholder="Weitere Informationen, wie Vorerkrankungen"></textarea>
+    </mat-form-field>
   </mat-step>
 
   <mat-step label="QR Code">

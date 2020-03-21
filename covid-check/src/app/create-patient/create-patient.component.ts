@@ -1,5 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Location, Appearance } from '@angular-material-extensions/google-maps-autocomplete';
+import PlaceResult = google.maps.places.PlaceResult;
 
 @Component({
   selector: 'app-create-patient',
@@ -10,6 +12,12 @@ export class CreatePatientComponent implements OnInit {
 
   symptomdatepicker : string
   birthdatepicker : string
+
+  latitude = 52.520008;
+  longitude = 13.404954;
+  zoom = 5;
+  placeResult: PlaceResult;
+
 
   constructor(
     private dialogRef: MatDialogRef<CreatePatientComponent>,
@@ -23,6 +31,16 @@ export class CreatePatientComponent implements OnInit {
     const patient = {}
     //TODO Add to firebase
     this.dialogRef.close();
+  }
+
+  onAutocompleteSelected(result: PlaceResult) {
+    this.placeResult = result;
+
+  }
+  onLocationSelected(location: Location) {
+    this.latitude = location.latitude;
+    this.longitude = location.longitude;
+    this.zoom = 15;
   }
 
 

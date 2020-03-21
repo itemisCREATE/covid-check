@@ -27,6 +27,8 @@ import { CreateTestComponent } from './dialogs/create-test/create-test.component
 import { QRCodeModule } from 'angular2-qrcode';
 import { CreatePatientComponent } from './create-patient/create-patient.component';
 import { MatNativeDateModule } from '@angular/material/core';
+import { AgmCoreModule } from '@agm/core';
+import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
 
 
 @NgModule({
@@ -57,7 +59,12 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDialogModule,
     MatNativeDateModule,
     MatStepperModule,
-    QRCodeModule
+    QRCodeModule,
+    MatGoogleMapsAutocompleteModule,
+    AgmCoreModule.forRoot({
+      apiKey: environment.firebase.mapsApiKey,
+      libraries: ['places']
+    }),
   ],
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {} },
