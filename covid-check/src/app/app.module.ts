@@ -22,13 +22,17 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatStepperModule} from '@angular/material/stepper';
 import { CreateTestComponent } from './dialogs/create-test/create-test.component';
 import { QRCodeModule } from 'angular2-qrcode';
+import { CreatePatientComponent } from './create-patient/create-patient.component';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     SideBarComponent,
     NavBarComponent,
-    CreateTestComponent
+    CreateTestComponent,
+    CreatePatientComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +48,7 @@ import { QRCodeModule } from 'angular2-qrcode';
     MatToolbarModule,
     MatMenuModule,
     MatDialogModule,
+    MatNativeDateModule,
     MatStepperModule,
     QRCodeModule
   ],
@@ -57,7 +62,8 @@ import { QRCodeModule } from 'angular2-qrcode';
   ],
   bootstrap: [AppComponent],
   entryComponents : [
-    CreateTestComponent
+    CreateTestComponent,
+    CreatePatientComponent
   ]
 })
 export class AppModule { }
