@@ -1,9 +1,9 @@
 import { Component, OnInit, Inject, Input, ViewChild, ElementRef } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Location, Appearance } from '@angular-material-extensions/google-maps-autocomplete';
-import PlaceResult = google.maps.places.PlaceResult;
 import { PatientService } from '../service/patient.service';
 import { Patient, Gender } from '../model/model';
+import PlaceResult = google.maps.places.PlaceResult;
 
 @Component({
   selector: 'app-create-patient',
@@ -39,8 +39,9 @@ export class CreatePatientComponent implements OnInit {
   finish() {
     const patient: Patient = {
       firstname: this.firstname.nativeElement.value, lastname: this.lastname.nativeElement.value,
-      city: 'Lünen', dateOfBirth: new Date(), fileNumber: '1', street: 'Test Str. 1', zip: '', id: '', gender: Gender.d
-    };
+      city: 'Lünen',
+      fileNumber: '1', street: 'Test Str. 1', zip: '', id: '', gender: Gender.d
+    } as undefined as Patient;
     this.patientService.addItem(patient);
     //TODO Add to firebase
     this.dialogRef.close();
