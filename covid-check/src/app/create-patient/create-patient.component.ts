@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Location, Appearance } from '@angular-material-extensions/google-maps-autocomplete';
 import PlaceResult = google.maps.places.PlaceResult;
+import { MatDatepicker } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-create-patient',
@@ -10,8 +11,7 @@ import PlaceResult = google.maps.places.PlaceResult;
 })
 export class CreatePatientComponent implements OnInit {
 
-  symptomdatepicker : string
-  birthdatepicker : string
+  birthdatepicker : MatDatepicker<Date>
 
   latitude = 52.520008;
   longitude = 13.404954;

@@ -23,9 +23,9 @@
 
             <mat-form-field>
                 <mat-label>Geburtsdatum</mat-label>
-                <input matInput [matDatepicker]="birthdatepicker">
+                <input matInput [matDatepicker]="birthdatepicker" required placeholder="Wählen sie ihr Geburtsdatum aus!">
                 <mat-datepicker-toggle matSuffix [for]="birthdatepicker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
+                <mat-datepicker #birthdatepicker></mat-datepicker>
             </mat-form-field>
 
         </form>

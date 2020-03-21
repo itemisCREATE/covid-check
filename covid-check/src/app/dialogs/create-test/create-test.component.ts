@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDatepicker } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-create-test',
@@ -7,6 +8,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./create-test.component.css']
 })
 export class CreateTestComponent implements OnInit {
+
+  symptomdatepicker : MatDatepicker<Date>
 
   constructor(
     private dialogRef: MatDialogRef<CreateTestComponent>,
