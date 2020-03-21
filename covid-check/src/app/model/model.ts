@@ -1,4 +1,5 @@
 export interface Patient {
+    id: string;
     // inspired by RKI form = Aktenzeichen
     fileNumber: string;
     firstname: string;
