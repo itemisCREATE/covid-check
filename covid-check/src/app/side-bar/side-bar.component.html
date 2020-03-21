@@ -11,7 +11,9 @@
                         Doktor
                     </mat-panel-title>
                 </mat-expansion-panel-header>
-
+                <a mat-list-item (click)="createPatient()">
+                    <mat-icon>library_books</mat-icon> Patient anlegen
+                </a>
                 <a mat-list-item (click)="createTest()">
                     <mat-icon>library_books</mat-icon> Test durchführen
                 </a>
