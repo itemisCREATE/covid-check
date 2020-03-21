@@ -33,6 +33,10 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { AgmCoreModule } from '@agm/core';
 import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
 import { PatientListComponent } from './patient-list/patient-list.component';
+import { DatePipe } from '@angular/common'
+import { HumanReadableExaminationListPipe } from './pipes/human-readable-examination-list.pipe';
+
+
 
 
 @NgModule({
@@ -42,7 +46,8 @@ import { PatientListComponent } from './patient-list/patient-list.component';
     NavBarComponent,
     CreateTestComponent,
     CreatePatientComponent,
-    PatientListComponent
+    PatientListComponent,
+    HumanReadableExaminationListPipe
   ],
   imports: [
     BrowserModule,
@@ -81,7 +86,11 @@ import { PatientListComponent } from './patient-list/patient-list.component';
       provide: MatDialogRef,
       useValue: {}
     },
-    MatDatepickerModule
+    MatDatepickerModule,
+    DatePipe,
+    HumanReadableExaminationListPipe
+    
+    
   ],
   bootstrap: [AppComponent],
   entryComponents : [

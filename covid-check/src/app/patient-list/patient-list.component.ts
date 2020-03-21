@@ -3,6 +3,7 @@ import {Patient, Examination, ExaminationStatus } from '../model/model';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class PatientListComponent implements OnInit {
   
   constructor() {
     this.prepareData()
-
+   
   }
   
   prepareData(){
@@ -33,6 +34,9 @@ export class PatientListComponent implements OnInit {
       e.patient.examinations.push(e)
     }); 
   } 
+
+
+ 
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -67,4 +71,8 @@ var PATIENT_MOCK: Patient [] = [
 var EXAMINATION_MOCK: Examination[]=[
   { id:"1", date: new Date("2020-03-21"), patient:PATIENT_MOCK[0], status:ExaminationStatus.scheduled, currentSymptoms:"Fieber", visitedSuspectRegions:"Spanien"}
 ]
+
+export function HumanReadableExaminationList(): string {
+  return 'ExaminationForPatientlist';
+}
 
