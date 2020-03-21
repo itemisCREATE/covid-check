@@ -41,6 +41,7 @@ import { DatePipe } from '@angular/common'
 import { HumanReadableExaminationListPipe } from './pipes/human-readable-examination-list.pipe';
 import { CommonModule } from "@angular/common";
 import { FileUploadComponent } from './shared/file-upload/file-upload.component';
+import { StatusCheckComponent } from './status-check/status-check.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { FileUploadComponent } from './shared/file-upload/file-upload.component'
     FooterComponent,
     PortfolioComponent,
     HumanReadableExaminationListPipe,
-    FileUploadComponent
+    FileUploadComponent,
+    StatusCheckComponent
   ],
   imports: [
     BrowserModule,

@@ -53,6 +53,10 @@ export class SideBarComponent implements OnInit {
     });
   }
 
+  checkStatus() {
+    this.router.navigate(['/status']);
+  }
+
   showPatients() {
     this.router.navigate(['/patients']);
   }
