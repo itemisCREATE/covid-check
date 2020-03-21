@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {Patient, Examination} from '../model/model';
+import {Patient, Examination, ExaminationStatus } from '../model/model';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -12,12 +12,27 @@ import { MatPaginator } from '@angular/material/paginator';
 })
 export class PatientListComponent implements OnInit {
   dataSource = new MatTableDataSource(PATIENT_MOCK);
-  displayedColumns: string[] = ['fileNumber','firstname','lastname','dateOfBirth', 'street', 'zip', 'city'];
+  displayedColumns: string[] = ['fileNumber','firstname','lastname','dateOfBirth', 'street', 'zip', 'city','examinations'];
   @ViewChild(MatSort, {static: true}) sort: MatSort; 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  
  
   
-  constructor() { }
+  
+  constructor() {
+    this.prepareData()
+
+  }
+  
+  prepareData(){
+    PATIENT_MOCK.forEach(function (e) {
+      e.examinations = []
+    });
+    
+    EXAMINATION_MOCK.forEach(function (e) {
+      e.patient.examinations.push(e)
+    }); 
+  } 
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -31,7 +46,7 @@ export class PatientListComponent implements OnInit {
 
 } 
 
-const PATIENT_MOCK: Patient [] = [
+var PATIENT_MOCK: Patient [] = [
   { fileNumber: "123", firstname: "Manfred", lastname: "Mustermann", dateOfBirth: new Date("1984-03-12"), street: "Teststr. 5", zip: "45144", city: "Lünen" },
   { fileNumber: "123", firstname: "Hans", lastname: "Mustermann", dateOfBirth: new Date("1984-03-12"), street: "Teststr. 5", zip: "45144", city: "Lünen"},
   { fileNumber: "123", firstname: "Günther", lastname: "Mustermann", dateOfBirth: new Date("1984-03-12"), street: "Teststr. 5", zip: "45144", city: "Lünen"},
@@ -48,3 +63,8 @@ const PATIENT_MOCK: Patient [] = [
   { fileNumber: "123", firstname: "Yves", lastname: "Mustermann", dateOfBirth: new Date("1984-03-12"), street: "Teststr. 5", zip: "45144", city: "Lünen"},
   { fileNumber: "123", firstname: "Ulf", lastname: "Mustermann", dateOfBirth: new Date("1984-03-12"), street: "Teststr. 5", zip: "45144", city: "Lünen"},
 ];
+
+var EXAMINATION_MOCK: Examination[]=[
+  { id:"1", date: new Date("2020-03-21"), patient:PATIENT_MOCK[0], status:ExaminationStatus.scheduled, currentSymptoms:"Fieber", visitedSuspectRegions:"Spanien"}
+]
+
