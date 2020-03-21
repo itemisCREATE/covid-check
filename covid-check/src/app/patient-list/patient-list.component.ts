@@ -18,7 +18,7 @@ export class PatientListComponent implements OnInit {
   ];
   
   dataSource = this.PATIENT_MOCK;
-  
+  displayedColumns: string[] = ['fileNumber','firstname','lastname','dateOfBirth'];
   constructor() { }
 
   ngOnInit(): void {

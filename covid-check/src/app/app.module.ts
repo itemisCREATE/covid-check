@@ -30,6 +30,7 @@ import { CreatePatientComponent } from './create-patient/create-patient.componen
 import { MatNativeDateModule } from '@angular/material/core';
 import { AgmCoreModule } from '@agm/core';
 import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
+import { PatientListComponent } from './patient-list/patient-list.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/go
     SideBarComponent,
     NavBarComponent,
     CreateTestComponent,
-    CreatePatientComponent
+    CreatePatientComponent,
+    PatientListComponent
   ],
   imports: [
     BrowserModule,
