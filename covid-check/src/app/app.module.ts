@@ -42,6 +42,7 @@ import { HumanReadableExaminationListPipe } from './pipes/human-readable-examina
 import { CommonModule } from "@angular/common";
 import { FileUploadComponent } from './shared/file-upload/file-upload.component';
 import { StatusCheckComponent } from './status-check/status-check.component';
+import 'firebase/storage';
 
 @NgModule({
   declarations: [
