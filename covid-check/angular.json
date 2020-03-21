@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "covid-check"
+  "defaultProject": "covid-check",
+  "cli": {
+    "analytics": false
+  }
 }

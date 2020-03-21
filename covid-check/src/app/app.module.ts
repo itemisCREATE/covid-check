@@ -9,6 +9,11 @@ import { environment } from '../environments/environment';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 
+
+import { MatNativeDateModule } from "@angular/material/core";
+import { MatCheckboxModule } from "@angular/material/checkbox";
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatRadioModule } from "@angular/material/radio";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
@@ -42,7 +47,11 @@ import { QRCodeModule } from 'angular2-qrcode';
     MatButtonModule,
     MatExpansionModule,
     MatToolbarModule,
+    MatCheckboxModule,
     MatMenuModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatDialogModule,
     MatStepperModule,
     QRCodeModule
@@ -54,6 +63,7 @@ import { QRCodeModule } from 'angular2-qrcode';
       provide: MatDialogRef,
       useValue: {}
     },
+    MatDatepickerModule
   ],
   bootstrap: [AppComponent],
   entryComponents : [
