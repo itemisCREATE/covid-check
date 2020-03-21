@@ -9,6 +9,7 @@ import { DatePipe } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateTestComponent } from '../dialogs/create-test/create-test.component';
 import { CreatePatientComponent } from '../create-patient/create-patient.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-patient-list',
@@ -21,7 +22,7 @@ export class PatientListComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
-  constructor(private patientService: PatientService, private dialog: MatDialog) {
+  constructor(private patientService: PatientService, private dialog: MatDialog, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -40,7 +41,7 @@ export class PatientListComponent implements OnInit {
       return null;
     }
   }
- 
+
   createTest() {
     const dialogRef = this.dialog.open(CreateTestComponent, {
       data: 'data'
@@ -81,5 +82,9 @@ export class PatientListComponent implements OnInit {
         console.log('result');
       }
     });
+  }
+
+  select(patient: Patient) {
+    this.router.navigate(['/patient-detail']);
   }
 }

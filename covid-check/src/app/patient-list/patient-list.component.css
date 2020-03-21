@@ -22,3 +22,7 @@ table {
      Every toolbar row uses a flexbox row layout. */
   flex: 1 1 auto;
 }
+
+.mat-row:hover {
+  background-color: darkgray;
+}
