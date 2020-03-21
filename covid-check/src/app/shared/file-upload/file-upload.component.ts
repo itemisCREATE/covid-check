@@ -3,7 +3,6 @@ import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
-import { StateService } from '../../property/state.service';
 
 @Component({
   selector: 'app-file-upload',
@@ -19,7 +18,7 @@ export class FileUploadComponent {
   isHovering: boolean;
   image: Observable<string>;
 
-  constructor(private storage: AngularFireStorage, private db: AngularFirestore, private state: StateService) { }
+  constructor(private storage: AngularFireStorage, private db: AngularFirestore) { }
 
   toggleHover(event: boolean) {
     this.isHovering = event;
@@ -31,7 +30,8 @@ export class FileUploadComponent {
       console.error('unsupported file type :( ');
       return;
     }
-    const path = `properties/${new Date().getTime()}_${file.name}`;
+    //TODO Implement FireStore here....
+    const path = `documents/${new Date().getTime()}_${file.name}`;
     this.task = this.storage.upload(path, file);
     this.snapshot = this.task.snapshotChanges();
 
