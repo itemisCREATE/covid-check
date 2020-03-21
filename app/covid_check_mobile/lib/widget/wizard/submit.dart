@@ -60,7 +60,7 @@ class SubmitFormState extends State<SubmitForm>{
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
                                   Text("Name: "),
-                                  Text("${patient.firstName} ${patient.lastName}")
+                                  Text("${patient.firstname} ${patient.lastname}")
                                 ],),
                               ),
                               Container(
@@ -144,6 +144,7 @@ class SubmitFormState extends State<SubmitForm>{
   }
 
   void submitData() {
-    service.submitPatient(Wizard.of(context).patient);
+    service.submitPatient(Wizard.of(context).patient, Wizard.of(context).user);
+
   }
 }

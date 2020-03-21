@@ -41,8 +41,9 @@ class Patient {
     );
   }
 
-  Map<String, dynamic> toMap(){
+  Map<String, dynamic> toMap(String userUID){
     return {
+      'useruid': userUID,
       'firstname': this.firstname,
       'lastname': this.lastname,
       'dateofbirth': this.dateofbirth,
