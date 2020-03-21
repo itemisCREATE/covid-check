@@ -47,12 +47,12 @@ class AddressFormState extends State<AddressForm> {
                             InputDecoration(labelText: "Addresse")),
                     SizedBox(height: 20.0),
                     TextFormField(
-                        onSaved: (value) => patient.zip = value,
+                        onChanged: (value) => patient.zip = value,
                         decoration:
                             InputDecoration(labelText: "Postleitzahl")),
                     SizedBox(height: 20.0),
                     TextFormField(
-                        onSaved: (value) => patient.city = value,
+                        onChanged: (value) => patient.city = value,
                         decoration:
                             InputDecoration(labelText: "Stadt")),
                     SizedBox(height: 20.0),
