@@ -32,7 +32,8 @@ class QuestionState extends State<Question>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: ListView(
+        shrinkWrap: true,
         children: <Widget>[
           Container(
               padding: EdgeInsets.all(30),
@@ -45,72 +46,48 @@ class QuestionState extends State<Question>{
                         SizedBox(height: 20.0),
                         Column(
                           children: <Widget>[
-                            Row(
+                            Column(
                               children: <Widget>[
-                                Column(
-                                  children: <Widget>[
-                                    Text("Haben Sie aktuell folgende Beschwerden: Husten, Fieber, Atemnot, sonstige Erkältungssymptome?")
-                                  ],
-                                ),
-                                Column(
-                                  children: <Widget>[
-                                    Switch(
-                                        activeColor: Colors.red,
-                                        value: false,
-                                        onChanged: (newValue){
-                                          setState(() {
-                                            symptoms = newValue;
-                                          });
-                                        }
-                                    )
-                                  ],
-                                ),
+                                Text("Haben Sie aktuell folgende Beschwerden: Husten, Fieber, Atemnot, sonstige Erkältungssymptome?"),
+                                Switch(
+                                    activeColor: Theme.of(context).accentColor,
+                                    value: false,
+                                    onChanged: (newValue){
+                                      setState(() {
+                                        symptoms = newValue;
+                                      });
+                                    }
+                                )
                               ],
                             ),
-                            Row(
+                            Column(
                               children: <Widget>[
-                                Column(
-                                  children: <Widget>[
-                                    Text("Hatten Sie Kontakt mit einer Person, bei der eine Coronavirus-Infektion festgestellt oder vermutet wurde (bis maximal 14 Tage vor Erkrankungsbeginn)?")
-                                  ],
-                                ),
-                                Column(
-                                  children: <Widget>[
-                                    Switch(
-                                        activeColor: Colors.red,
-                                        value: false,
-                                        onChanged: (newValue){
-                                          setState(() {
-                                            contact = newValue;
-                                          });
-                                        }
-                                    )
-                                  ],
-                                ),
+                                Text("Hatten Sie Kontakt mit einer Person, bei der eine Coronavirus-Infektion festgestellt oder vermutet wurde (bis maximal 14 Tage vor Erkrankungsbeginn)?"),
+                                Switch(
+                                    activeColor: Theme.of(context).accentColor,
+                                    value: false,
+                                    onChanged: (newValue){
+                                      setState(() {
+                                        contact = newValue;
+                                      });
+                                    }
+                                )
                               ],
                             ),
-                            Row(
+                            Column(
                               children: <Widget>[
-                                Column(
-                                  children: <Widget>[
-                                    Text("Waren Sie in den letzten 14 Tagen in einem Risikogebiet wie zum Beispiel China, Südkorea, dem Iran, Italien oder Frankreich (bis maximal 14 Tage vor Erkrankungsbeginn)?")
-                                  ],
-                                ),
-                                Column(
-                                  children: <Widget>[
-                                    Switch(
-                                        activeColor: Colors.red,
-                                        value: false,
-                                        onChanged: (newValue){
-                                          setState(() {
-                                            riskarea = newValue;
-                                          });
-                                        }
-                                    )
-                                  ],
-                                ),
+                                Text("Waren Sie in den letzten 14 Tagen in einem Risikogebiet wie zum Beispiel China, Südkorea, dem Iran, Italien oder Frankreich (bis maximal 14 Tage vor Erkrankungsbeginn)?"),
+                                Switch(
+                                      activeColor: Theme.of(context).accentColor,
+                                      value: false,
+                                      onChanged: (newValue){
+                                        setState(() {
+                                          riskarea = newValue;
+                                        });
+                                      }
+                                  ),
                               ],
-                            )
+                            ),
                           ],
                         )
                       ]
