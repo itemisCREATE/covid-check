@@ -20,6 +20,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatStepperModule} from '@angular/material/stepper';
@@ -45,6 +46,7 @@ import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/go
     AngularFireModule.initializeApp(environment.firebase),
     BrowserAnimationsModule,
     MatSidenavModule,
+    MatTableModule,
     MatIconModule,
     MatListModule,
     MatInputModule,
