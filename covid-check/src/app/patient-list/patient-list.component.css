@@ -1,3 +1,18 @@
 table {
     width: 100%;
   }
+.mat-row:nth-child(even){
+    background-color:whitesmoke;
+}
+
+.mat-row:nth-child(odd){
+    background-color:white;
+}  
+
+::ng-deep th.mat-header-cell{
+  width: 140px;
+  min-width: 140px;
+  background-color:lightgray;
+  font-weight: bold;
+  font-size: 110%;
+}

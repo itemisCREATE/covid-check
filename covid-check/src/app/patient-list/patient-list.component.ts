@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {Patient} from '../model/model';
+import {Patient, Examination} from '../model/model';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -12,7 +12,7 @@ import { MatPaginator } from '@angular/material/paginator';
 })
 export class PatientListComponent implements OnInit {
   dataSource = new MatTableDataSource(PATIENT_MOCK);
-  displayedColumns: string[] = ['fileNumber','firstname','lastname','dateOfBirth'];
+  displayedColumns: string[] = ['fileNumber','firstname','lastname','dateOfBirth', 'street', 'zip', 'city'];
   @ViewChild(MatSort, {static: true}) sort: MatSort; 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
  
@@ -29,7 +29,7 @@ export class PatientListComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
-}
+} 
 
 const PATIENT_MOCK: Patient [] = [
   { fileNumber: "123", firstname: "Manfred", lastname: "Mustermann", dateOfBirth: new Date("1984-03-12"), street: "Teststr. 5", zip: "45144", city: "Lünen" },
