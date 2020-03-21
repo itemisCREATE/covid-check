@@ -39,6 +39,7 @@ export interface Examination {
     currentSymptoms: string;
     contactToSuspectPersons: boolean;
     status: ExaminationStatus;
+    patient: Patient;
 }
 export enum ProbeResult {
     unknown = 0,
