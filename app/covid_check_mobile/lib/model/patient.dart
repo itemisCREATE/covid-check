@@ -2,10 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Patient {
    String id;
-   String fileNumber;
-   String firstName;
-   String lastName;
-   Timestamp dateOfBirth;
+   String filenumber;
+   String firstname;
+   String lastname;
+   Timestamp dateofbirth;
    String address;
    String zip;
    String city;
@@ -14,30 +14,48 @@ class Patient {
 
   Patient(
       {this.id,
-      this.fileNumber,
-      this.firstName,
-      this.lastName,
+      this.filenumber,
+      this.firstname,
+      this.lastname,
       this.address,
       this.zip,
       this.city,
       this.gender,
       this.examinations,
-      this.dateOfBirth});
+      this.dateofbirth}
+   );
 
-  factory Patient.fromDocument(DocumentSnapshot snap) {
+  factory Patient.fromDocument(DocumentSnapshot doc) {
+    print(doc.toString());
     return Patient(
-      id: snap.documentID,
-      fileNumber: snap['fileNumber'],
-      firstName: snap['firstName'],
-      lastName: snap['lastName'],
-      dateOfBirth: snap['dateOfBirth'],
-      address: snap['address'],
-      zip: snap['zip'],
-      city: snap['city'],
-      gender: snap['gender'],
-      examinations: snap['examinations']
+      id: doc.documentID,
+        filenumber: doc['filenumber'].toString(),
+        firstname: doc['firstname'].toString(),
+        lastname: doc['lastname'].toString(),
+        dateofbirth: doc['dateofbirth'],
+      address: doc['address'],
+      zip: doc['zip'],
+      city: doc['city'],
+      gender: Gender.values[doc['gender']],
+      examinations: doc['examinations']
     );
   }
+
+  Map<String, dynamic> toMap(){
+    return {
+      'firstname': this.firstname,
+      'lastname': this.lastname,
+      'dateofbirth': this.dateofbirth,
+      'address': this.address,
+      'zip': this.zip,
+      'city': this.city,
+      'gender': this.gender,
+    };
+  }
+}
+
+Gender _genderForIndex(int index){
+  return Gender.values[index];
 }
 
 enum Gender { m, f, d }

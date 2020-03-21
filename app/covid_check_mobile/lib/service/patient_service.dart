@@ -5,12 +5,19 @@ class PatientService {
   Stream<List<Patient>> _getPatientStream() async* {
     var snapshots = Firestore.instance.collection('patient').snapshots();
     await for (QuerySnapshot sn in snapshots) {
-      yield sn.documents.map<Patient>((p) => Patient.fromDocument(p));
+      yield sn.documents.map<Patient>((doc) => Patient.fromDocument(doc)).toList();
     }
   }
 
-  Future<Patient> getPatient() async {
+  Stream<Patient> getPatient() async* {
     List<Patient> patients = await _getPatientStream().first;
-    return patients.first;
+    for (Patient p in patients){
+      yield p;
+    }
   }
+
+  void submitPatient(Patient patient){
+    Firestore.instance.collection('patient').add(patient.toMap());
+  }
+
 }
