@@ -37,6 +37,19 @@
                     <mat-icon>library_books</mat-icon> Testergebnis eintragen
                 </a>
             </mat-expansion-panel>
+            <br />
+            <mat-expansion-panel mat-list-item>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon>fingerprint</mat-icon>&nbsp;
+                        Patient
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <a mat-list-item  (click)="checkStatus()">
+                    <mat-icon>library_books</mat-icon> Testergebnis abfragen
+                </a>
+            </mat-expansion-panel>
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
