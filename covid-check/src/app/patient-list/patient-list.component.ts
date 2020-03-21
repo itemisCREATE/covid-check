@@ -25,6 +25,8 @@ export class PatientListComponent implements OnInit {
       next: (patientList) => this.dataSource.data = patientList,
       error: (error) => console.log(error)
     });
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 
   applyFilter(event: Event) {

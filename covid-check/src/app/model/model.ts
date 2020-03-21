@@ -35,7 +35,7 @@ export interface Examination {
     street?: string;
     zip?: string;
     city?: string;
-    documents?: Array<String>;
+    documents?: Array<string>;
     probes?: Array<Probe>;
     visitedSuspectRegions?: string;
     currentSymptoms?: string;
