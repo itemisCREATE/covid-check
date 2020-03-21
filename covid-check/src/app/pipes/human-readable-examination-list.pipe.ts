@@ -19,7 +19,8 @@ export class HumanReadableExaminationListPipe implements PipeTransform {
     if (ex != null) {
       ex.forEach(function (e) {
         if (exStatus == null || e.status == exStatus) {
-          ret.concat("Examination @")/*.concat(niceDate(e.date))*/.concat(", status=").concat(ExaminationStatus[e.status]).concat("\n");
+          ret.concat("Pipe funzt nicht weil ich das Datum nicht konvertiert bekomme");
+          //ret.concat("Examination @")/*.concat(niceDate(e.date))*/.concat(", status=").concat(ExaminationStatus[e.status]).concat("\n");
         }
       });
     }
