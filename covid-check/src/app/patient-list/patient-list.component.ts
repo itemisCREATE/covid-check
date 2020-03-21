@@ -30,6 +30,16 @@ export class PatientListComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
+  linkToExamination(p:Patient){
+    
+    if(p.examinations!=null 
+      && p.examinations.filter((e)=>{return e.status==ExaminationStatus.probeOutstanding}).length>0){
+        return "<Link auf vereinbarten Untersuchung>";
+    }else {
+      return "<Link auf neue Untersuchung anlegen>";
+    }
+  }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
