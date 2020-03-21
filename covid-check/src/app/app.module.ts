@@ -40,6 +40,7 @@ import { PortfolioComponent } from './home/portfolio/portfolio.component';
 import { DatePipe } from '@angular/common'
 import { HumanReadableExaminationListPipe } from './pipes/human-readable-examination-list.pipe';
 import { CommonModule } from "@angular/common";
+import { FileUploadComponent } from './shared/file-upload/file-upload.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { CommonModule } from "@angular/common";
     HomeComponent,
     FooterComponent,
     PortfolioComponent,
-    HumanReadableExaminationListPipe
+    HumanReadableExaminationListPipe,
+    FileUploadComponent
   ],
   imports: [
     BrowserModule,
