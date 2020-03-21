@@ -11,8 +11,6 @@ import { MatPaginator } from '@angular/material/paginator';
   styleUrls: ['./patient-list.component.css']
 })
 export class PatientListComponent implements OnInit {
-
- 
   dataSource = new MatTableDataSource(PATIENT_MOCK);
   displayedColumns: string[] = ['fileNumber','firstname','lastname','dateOfBirth'];
   @ViewChild(MatSort, {static: true}) sort: MatSort; 
@@ -20,7 +18,12 @@ export class PatientListComponent implements OnInit {
  
   
   constructor() { }
- 
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
   ngOnInit(): void {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
