@@ -47,35 +47,82 @@ class SubmitFormState extends State<SubmitForm>{
                       children: <Widget>[
                         FormTitle("Übermitteln Sie ihre Daten um Terminvorschläge zu erhalten", index),
                         SizedBox(height: 20.0),
-                        Column(
-                          children: <Widget>[
-                            Row(children: <Widget>[
-                              Text("${patient.firstName} ${patient.lastName}")
-                            ],),
-                            Row(children: <Widget>[
-                              Text("Adresse: ${patient.address}, ${patient.zip} ${patient.city}")
-                            ],),
-                            Row(children: <Widget>[
-                              Text("Email: "),
-                              Text("abc@de.com")
-                            ],),
-                            Row(children: <Widget>[
-                              Text("Telefon: "),
-                              Text("123 456 789")
-                            ],),
-                            Row(children: <Widget>[
-                              Text("Spezifische Beschwerden: "),
-                              Text("Ja")
-                            ],),
-                            Row(children: <Widget>[
-                              Text("Kontakt mit potenziell infizierten Personen"),
-                              Text("Nein")
-                            ],),
-                            Row(children: <Widget>[
-                              Text("Aus Risikogebiet kommend: "),
-                              Text("Ja")
-                            ],)
-                          ],
+                        Container(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Column(
+                            children: <Widget>[
+                              Container(
+                                margin: EdgeInsets.all(6.0),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                  Text("Name: "),
+                                  Text("${patient.firstName} ${patient.lastName}")
+                                ],),
+                              ),
+                              Container(
+                                margin: EdgeInsets.all(6.0),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                  Text("Adresse: "),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: <Widget>[
+                                      Text("${patient.address}"), 
+                                      Text("${patient.zip} ${patient.city}")
+                                    ],
+                                  )
+                                ],),
+                              ),
+                              Container(
+                                margin: EdgeInsets.all(6.0),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                  Text("Email: "),
+                                  Text("abc@de.com")
+                                ],),
+                              ),
+                              Container(
+                                margin: EdgeInsets.all(6.0),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                  Text("Telefon: "),
+                                  Text("123 456 789")
+                                ],),
+                              ),
+                              Container(
+                                margin: EdgeInsets.all(6.0),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                  Text("Spezifische Beschwerden: "),
+                                  Text("Ja")
+                                ],),
+                              ),
+                              Container(
+                                margin: EdgeInsets.all(6.0),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                  Text("Kontakt mit pot. infizierten Personen: "),
+                                  Text("Nein")
+                                ],),
+                              ),
+                              Container(
+                                margin: EdgeInsets.all(6.0),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                  Text("Aus Risikogebiet kommend: "),
+                                  Text("Ja")
+                                ],),
+                              )
+                            ],
+                          ),
                         ),
                         SizedBox(height: 20.0),
                         RaisedButton.icon(
