@@ -8,6 +8,7 @@ export interface Patient {
     zip: string;
     city: string;
     gender?: Gender;
+    examinations: Array<Examination>;
 };
 
 export enum Gender {
