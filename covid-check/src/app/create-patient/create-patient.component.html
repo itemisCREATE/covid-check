@@ -37,13 +37,21 @@
             <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
         </agm-map>
         <mat-google-maps-autocomplete country="de" type="address" addressLabelText="Bitte geben Sie die Adresse ein"
-        (onAutocompleteSelected)="onAutocompleteSelected($event)" (onLocationSelected)="onLocationSelected($event)">
-      </mat-google-maps-autocomplete>
-      <br />
+            (onAutocompleteSelected)="onAutocompleteSelected($event)" (onLocationSelected)="onLocationSelected($event)">
+        </mat-google-maps-autocomplete>
+        <br />
     </mat-step>
-    
+
     <mat-step label="Kontaktdaten">
-       
+        <mat-form-field class="example-full-width">
+            <mat-label>Telefon</mat-label>
+            <input matInput placeholder="Telefon- oder Handynummer" value="+49 12345678">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>E-Mail Adresse</mat-label>
+            <input matInput placeholder="max.mustermann@xyz.de" value="max.mustermann@xyz.de">
+        </mat-form-field>
     </mat-step>
 </mat-horizontal-stepper>
 <mat-dialog-actions align="end">
