@@ -34,13 +34,13 @@ export class PatientListComponent implements OnInit {
   }
 
   dateOfBirthNullSafe(p: Patient) {
-    if (p.dateOfBirth != null) {
-      return p.dateOfBirth.toDate();
+    if (p.dateofbirth != null) {
+      return p.dateofbirth.toDate();
     } else {
       return null;
     }
   }
-
+ 
   createTest() {
     const dialogRef = this.dialog.open(CreateTestComponent, {
       data: 'data'
