@@ -8,6 +8,9 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class CreatePatientComponent implements OnInit {
 
+  symptomdatepicker : string
+  birthdatepicker : string
+
   constructor(
     private dialogRef: MatDialogRef<CreatePatientComponent>,
     @Inject(MAT_DIALOG_DATA) public message: string
