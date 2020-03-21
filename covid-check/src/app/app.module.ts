@@ -20,7 +20,10 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
 import {MatDialogModule, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatStepperModule} from '@angular/material/stepper';
 import { CreateTestComponent } from './dialogs/create-test/create-test.component';
@@ -29,6 +32,7 @@ import { CreatePatientComponent } from './create-patient/create-patient.componen
 import { MatNativeDateModule } from '@angular/material/core';
 import { AgmCoreModule } from '@agm/core';
 import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
+import { PatientListComponent } from './patient-list/patient-list.component';
 
 
 @NgModule({
@@ -37,7 +41,8 @@ import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/go
     SideBarComponent,
     NavBarComponent,
     CreateTestComponent,
-    CreatePatientComponent
+    CreatePatientComponent,
+    PatientListComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +50,9 @@ import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/go
     AngularFireModule.initializeApp(environment.firebase),
     BrowserAnimationsModule,
     MatSidenavModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
     MatIconModule,
     MatListModule,
     MatInputModule,
@@ -58,7 +66,7 @@ import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/go
     MatNativeDateModule,
     MatDialogModule,
     MatNativeDateModule,
-    MatStepperModule,
+    MatStepperModule, 
     QRCodeModule,
     MatGoogleMapsAutocompleteModule,
     AgmCoreModule.forRoot({

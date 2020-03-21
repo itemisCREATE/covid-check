@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateTestComponent } from '../dialogs/create-test/create-test.component';
 import { CreatePatientComponent } from '../create-patient/create-patient.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-bar',
@@ -10,7 +11,7 @@ import { CreatePatientComponent } from '../create-patient/create-patient.compone
 })
 export class SideBarComponent implements OnInit {
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog,  private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -37,5 +38,9 @@ export class SideBarComponent implements OnInit {
         console.log('result');
       }
     });
+  }
+
+  showPatients() {
+    this.router.navigate(['/patients']);
   }
 }
