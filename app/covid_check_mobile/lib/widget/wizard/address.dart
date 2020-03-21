@@ -3,23 +3,25 @@ import 'package:flutter/material.dart';
 
 class AddressForm extends StatefulWidget {
   final PageController controller;
+  final int index;
 
-  AddressForm(this.controller);
+  AddressForm(this.index, this.controller);
 
   @override
   State<StatefulWidget> createState() {
-    return AddressFormState(this.controller);
+    return AddressFormState(this.index, this.controller);
   }
 }
 
 class AddressFormState extends State<AddressForm> {
   final PageController controller;
+  final int index;
 
   String address = '';
   String postcode = '';
   String city = '';
 
-  AddressFormState(this.controller);
+  AddressFormState(this.index, this.controller);
 
   final _formKey = GlobalKey<FormState>();
 
@@ -36,7 +38,7 @@ class AddressFormState extends State<AddressForm> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    FormTitle("Anschrift", 1),
+                    FormTitle("Anschrift", index),
                     SizedBox(height: 20.0),
                     TextFormField(
                         onSaved: (value) => address = value,

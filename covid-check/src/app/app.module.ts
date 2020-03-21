@@ -37,7 +37,8 @@ import { PatientListComponent } from './patient-list/patient-list.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './home/footer/footer.component';
 import { PortfolioComponent } from './home/portfolio/portfolio.component';
-
+import { DatePipe } from '@angular/common'
+import { HumanReadableExaminationListPipe } from './pipes/human-readable-examination-list.pipe';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { PortfolioComponent } from './home/portfolio/portfolio.component';
     HomeComponent,
     FooterComponent,
     PortfolioComponent
+    HumanReadableExaminationListPipe
   ],
   imports: [
     BrowserModule,
@@ -90,7 +92,11 @@ import { PortfolioComponent } from './home/portfolio/portfolio.component';
       provide: MatDialogRef,
       useValue: {}
     },
-    MatDatepickerModule
+    MatDatepickerModule,
+    DatePipe,
+    HumanReadableExaminationListPipe
+    
+    
   ],
   bootstrap: [AppComponent],
   entryComponents : [
