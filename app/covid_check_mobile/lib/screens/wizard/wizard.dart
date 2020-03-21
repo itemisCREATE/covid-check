@@ -20,9 +20,7 @@ class Wizard extends StatelessWidget {
       children: <Widget>[
         NameForm(this.controller),
         AddressForm(this.controller),
-        Question(2, "Haben Sie aktuell folgende Beschwerden: Husten, Fieber, Atemnot, sonstige Erkältungssymptome?", this.controller),
-        Question(3, "Hatten Sie Kontakt mit einer Person, bei der eine Coronavirus-Infektion festgestellt oder vermutet wurde (bis maximal 14 Tage vor Erkrankungsbeginn)?", this.controller),
-        Question(4, "Waren Sie in den letzten 14 Tagen in einem Risikogebiet wie zum Beispiel China, Südkorea, dem Iran, Italien oder Frankreich (bis maximal 14 Tage vor Erkrankungsbeginn)?", this.controller),
+        Question(2, "Noch ein paar Fragen", this.controller),
       ],
     );;
   }
