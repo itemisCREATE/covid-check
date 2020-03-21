@@ -37,7 +37,7 @@ export class CreatePatientComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  finish() {
+  finish(event : any) {
     const patient: Patient = {
       firstname: this.firstname.nativeElement.value, lastname: this.lastname.nativeElement.value,
       city: 'Lünen',

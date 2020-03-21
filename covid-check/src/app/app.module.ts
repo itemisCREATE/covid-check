@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-
+import {FlexLayoutModule} from '@angular/flex-layout';
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatRadioModule } from "@angular/material/radio";
@@ -25,6 +25,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatDialogModule, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatCardModule} from '@angular/material/card';
 import {MatStepperModule} from '@angular/material/stepper';
 import { CreateTestComponent } from './dialogs/create-test/create-test.component';
 import { QRCodeModule } from 'angular2-qrcode';
@@ -33,6 +34,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { AgmCoreModule } from '@agm/core';
 import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
 import { PatientListComponent } from './patient-list/patient-list.component';
+import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './home/footer/footer.component';
+import { PortfolioComponent } from './home/portfolio/portfolio.component';
 
 
 @NgModule({
@@ -42,7 +46,10 @@ import { PatientListComponent } from './patient-list/patient-list.component';
     NavBarComponent,
     CreateTestComponent,
     CreatePatientComponent,
-    PatientListComponent
+    PatientListComponent,
+    HomeComponent,
+    FooterComponent,
+    PortfolioComponent
   ],
   imports: [
     BrowserModule,
@@ -66,8 +73,10 @@ import { PatientListComponent } from './patient-list/patient-list.component';
     MatNativeDateModule,
     MatDialogModule,
     MatNativeDateModule,
-    MatStepperModule, 
+    MatStepperModule,
+    MatCardModule, 
     QRCodeModule,
+    FlexLayoutModule,
     MatGoogleMapsAutocompleteModule,
     AgmCoreModule.forRoot({
       apiKey: environment.firebase.mapsApiKey,

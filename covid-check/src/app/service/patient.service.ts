@@ -23,4 +23,8 @@ export class PatientService {
     const itemDoc = this.afs.doc<Patient>('patient/' + item.id);
     itemDoc.update(item);
   }
+
+  getAllPatients(){
+
+  }
 }
