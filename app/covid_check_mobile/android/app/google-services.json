@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "454273138585",
+    "firebase_url": "https://yakinduvirus.firebaseio.com",
+    "project_id": "yakinduvirus",
+    "storage_bucket": "yakinduvirus.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454273138585:android:bbf40f6efd689d052a1d08",
+        "android_client_info": {
+          "package_name": "com.yakindu.covidcheckmobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "454273138585-f5bo1ml6dcceovimbh4mpp1dikeoijld.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "xxx"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "454273138585-f5bo1ml6dcceovimbh4mpp1dikeoijld.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
