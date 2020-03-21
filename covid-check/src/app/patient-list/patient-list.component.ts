@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Patient } from '../model/model';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Patient, Examination, ExaminationStatus } from '../model/model';
 import { PatientService } from '../service/patient.service';
 import { Observable } from 'rxjs';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-patient-list',
@@ -9,15 +12,23 @@ import { Observable } from 'rxjs';
   styleUrls: ['./patient-list.component.css']
 })
 export class PatientListComponent implements OnInit {
+  dataSource = new MatTableDataSource();
+  displayedColumns: string[] = ['fileNumber', 'firstname', 'lastname', 'dateOfBirth', 'street', 'zip', 'city', 'examinations'];
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
-  dataSource = [];
-  displayedColumns: string[] = ['fileNumber', 'firstname', 'lastname', 'dateOfBirth'];
-  constructor(private patientService: PatientService) { }
+  constructor(private patientService: PatientService) {
+  }
 
   ngOnInit(): void {
     this.patientService.items.subscribe({
-      next: (patientList) => this.dataSource = patientList,
+      next: (patientList) => this.dataSource.data = patientList,
       error: (error) => console.log(error)
     });
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }

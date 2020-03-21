@@ -9,7 +9,9 @@ export interface Patient {
     zip: string;
     city: string;
     gender?: Gender;
-};
+    examinations?: Array<Examination>;
+}; 
+
 
 export enum Gender {
     m = 0,
@@ -28,17 +30,18 @@ export interface Examination {
     // human readable id
     id: string;
     date: Date;
-    nameOfLocation: string;
-    nameOfContactPerson: string;
-    street: string;
-    zip: string;
-    city: string;
-    documents: Array<String>;
-    probes: Array<Probe>;
-    visitedSuspectRegions: boolean;
-    currentSymptoms: string;
-    contactToSuspectPersons: boolean;
+    nameOfLocation?: string;
+    nameOfContactPerson?: string;
+    street?: string;
+    zip?: string;
+    city?: string;
+    documents?: Array<String>;
+    probes?: Array<Probe>;
+    visitedSuspectRegions?: string;
+    currentSymptoms?: string;
+    contactToSuspectPersons?: boolean;
     status: ExaminationStatus;
+    patient: Patient;
 }
 export enum ProbeResult {
     unknown = 0,

@@ -21,7 +21,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
 import {MatDialogModule, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatStepperModule} from '@angular/material/stepper';
 import { CreateTestComponent } from './dialogs/create-test/create-test.component';
@@ -49,6 +51,8 @@ import { PatientListComponent } from './patient-list/patient-list.component';
     BrowserAnimationsModule,
     MatSidenavModule,
     MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
     MatIconModule,
     MatListModule,
     MatInputModule,
@@ -62,7 +66,7 @@ import { PatientListComponent } from './patient-list/patient-list.component';
     MatNativeDateModule,
     MatDialogModule,
     MatNativeDateModule,
-    MatStepperModule,
+    MatStepperModule, 
     QRCodeModule,
     MatGoogleMapsAutocompleteModule,
     AgmCoreModule.forRoot({
