@@ -56,12 +56,12 @@ class NameFormState extends State<NameForm>{
                             InputDecoration(labelText: "Anrede")),
                         SizedBox(height: 20.0),
                         TextFormField(
-                            onChanged: (value) => patient.firstName = value,
+                            onChanged: (value) => patient.firstname = value,
                             decoration:
                             InputDecoration(labelText: "Vorname")),
                         SizedBox(height: 20.0),
                         TextFormField(
-                            onChanged: (value) => patient.lastName = value,
+                            onChanged: (value) => patient.lastname = value,
                             decoration:
                             InputDecoration(labelText: "Nachname")),
                         SizedBox(height: 20.0),

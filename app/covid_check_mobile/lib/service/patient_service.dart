@@ -20,5 +20,4 @@ class PatientService {
   void submitPatient(Patient patient, FirebaseUser user){
     Firestore.instance.collection('patient').add(patient.toMap(user.uid));
   }
-
 }

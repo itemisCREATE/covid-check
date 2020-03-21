@@ -23,7 +23,7 @@ class DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-        stream: service.getPatient(),
+        stream: service.getPatient(user.uid),
         builder: (context, snapshot) {
            if(snapshot.hasError){
              return Wizard(this.user);
