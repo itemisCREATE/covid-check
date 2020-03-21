@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'package:covidcheckmobile/screens/wizard/wizard.dart';
+import 'package:covidcheckmobile/model/patient.dart';
+
 import 'title.dart';
 
 class SubmitForm extends StatefulWidget {
@@ -28,6 +31,9 @@ class SubmitFormState extends State<SubmitForm>{
 
   @override
   Widget build(BuildContext context) {
+    Patient patient = Wizard.of(context).patient;
+
+
     return Scaffold(
       body: ListView(
         shrinkWrap: true,
@@ -44,10 +50,10 @@ class SubmitFormState extends State<SubmitForm>{
                         Column(
                           children: <Widget>[
                             Row(children: <Widget>[
-                              Text("Herr Bla Blubb")
+                              Text("${patient.firstName} ${patient.lastName}")
                             ],),
                             Row(children: <Widget>[
-                              Text("Wohnhaft in Buxtehude")
+                              Text("Adresse: ${patient.address}, ${patient.zip} ${patient.city}")
                             ],),
                             Row(children: <Widget>[
                               Text("Email: "),

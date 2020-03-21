@@ -1,6 +1,8 @@
 import 'package:covidcheckmobile/widget/wizard/title.dart';
 import 'package:flutter/material.dart';
 
+import '../../screens/wizard/wizard.dart';
+
 class AddressForm extends StatefulWidget {
   final PageController controller;
   final int index;
@@ -17,16 +19,14 @@ class AddressFormState extends State<AddressForm> {
   final PageController controller;
   final int index;
 
-  String address = '';
-  String postcode = '';
-  String city = '';
-
   AddressFormState(this.index, this.controller);
 
   final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
+    final patient = Wizard.of(context).patient;
+
     return Scaffold(
       body: ListView(
         shrinkWrap: true,
@@ -41,18 +41,18 @@ class AddressFormState extends State<AddressForm> {
                     FormTitle("Anschrift", index),
                     SizedBox(height: 20.0),
                     TextFormField(
-                        onSaved: (value) => address = value,
+                        onChanged: (value) => patient.address = value,
                         keyboardType: TextInputType.text,
                         decoration:
                             InputDecoration(labelText: "Addresse")),
                     SizedBox(height: 20.0),
                     TextFormField(
-                        onSaved: (value) => postcode = value,
+                        onSaved: (value) => patient.zip = value,
                         decoration:
                             InputDecoration(labelText: "Postleitzahl")),
                     SizedBox(height: 20.0),
                     TextFormField(
-                        onSaved: (value) => city = value,
+                        onSaved: (value) => patient.city = value,
                         decoration:
                             InputDecoration(labelText: "Stadt")),
                     SizedBox(height: 20.0),

@@ -56,7 +56,7 @@ class _CovidCheckHomeState extends State<CovidCheckHome> {
            return Text(snapshot.error.toString());
          }
        }
-       return snapshot.hasData ?  Wizard(snapshot.data) : LoginScreen();
+       return snapshot.hasData ?  Wizard(snapshot.data) : Wizard(snapshot.data);
       },
      );
   }

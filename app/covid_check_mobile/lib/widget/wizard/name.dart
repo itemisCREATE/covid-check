@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../screens/wizard/wizard.dart';
+import '../../model/patient.dart';
+
 import 'title.dart';
 
 class NameForm extends StatefulWidget {
@@ -20,8 +23,6 @@ class NameFormState extends State<NameForm>{
   final int index;
   
   String title;
-  String surname;
-  String lastname;
 
   NameFormState(this.index, this.controller);
 
@@ -29,6 +30,9 @@ class NameFormState extends State<NameForm>{
 
   @override
   Widget build(BuildContext context) {
+    Patient patient = Wizard.of(context).patient;
+
+
     return Scaffold(
       body: ListView(
         shrinkWrap: true,
@@ -43,18 +47,21 @@ class NameFormState extends State<NameForm>{
                         FormTitle("Anrede und Name", index),
                         SizedBox(height: 20.0),
                         TextFormField(
-                            onSaved: (value) => title = value,
+                            onChanged: (value) {
+                              title = value;
+                              //patient.title = value;
+                            },
                             keyboardType: TextInputType.text,
                             decoration:
                             InputDecoration(labelText: "Anrede")),
                         SizedBox(height: 20.0),
                         TextFormField(
-                            onSaved: (value) => surname = value,
+                            onChanged: (value) => patient.firstName = value,
                             decoration:
                             InputDecoration(labelText: "Vorname")),
                         SizedBox(height: 20.0),
                         TextFormField(
-                            onSaved: (value) => lastname = value,
+                            onChanged: (value) => patient.lastName = value,
                             decoration:
                             InputDecoration(labelText: "Nachname")),
                         SizedBox(height: 20.0),
