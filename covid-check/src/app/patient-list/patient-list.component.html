@@ -44,9 +44,9 @@
 
     <ng-container matColumnDef="examinations">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Examination </th>
-      <td mat-cell *matCellDef="let element"> {{linkToExamination(element)}} </td>
+      <td mat-cell *matCellDef="let element"> <a (click)="createTest()" routerLinkActive="active">{{linkToExamination(element)}} </a></td>
     </ng-container> 
-
+    
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
