@@ -1,16 +1,27 @@
 interface Patient {
+    // inspired by RKI form = Aktenzeichen
+    fileNumber: string;
     firstname: string;
     lastname: string;
     dateOfBirth: Date;
     street: string;
     zip: string;
     city: string;
-    visitedSuspectRegions: boolean;
-    currentSymptoms : string;
-    contactToSuspectPersons : boolean;
     examinations: Array<Examination>;
-   
+    gender: Gender;
 };
+
+enum Gender {
+    m = 0,
+    f = 1,
+    d = 2
+}
+
+enum ExaminationStatus {
+    scheduled=1,
+    probeOutstanding=2,
+    closed=3
+}
 
 
 interface Examination {
@@ -24,6 +35,10 @@ interface Examination {
     city: string;
     documents: Array<String>;
     probes: Array<Probe>;
+    visitedSuspectRegions: boolean;
+    currentSymptoms : string;
+    contactToSuspectPersons : boolean;
+    status:ExaminationStatus;
 }
 enum ProbeResult {
     unknown = 0,
@@ -33,7 +48,7 @@ enum ProbeResult {
 
 interface Probe {
     creationDate: Date;
-    probeDate: Date;
+    examinationDate: Date;
     result : ProbeResult;
     id: string;
 }
