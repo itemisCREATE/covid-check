@@ -28,7 +28,8 @@ class NameFormState extends State<NameForm>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: ListView(
+        shrinkWrap: true,
         children: <Widget>[
           Container(
               padding: EdgeInsets.all(30),

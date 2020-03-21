@@ -13,19 +13,19 @@
             <br />
             <mat-form-field class="example-full-width">
                 <mat-label>Name</mat-label>
-                <input matInput placeholder="Mustermann" value="Mustermann">
+                <input #lastname  matInput placeholder="Mustermann" value="Mustermann">
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
                 <mat-label>Vorname</mat-label>
-                <input matInput placeholder="Max" value="Max">
+                <input #firstname matInput placeholder="Max" value="Max">
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label>Geburtsdatum</mat-label>
-                <input matInput [matDatepicker]="birthdatepicker">
+                <input matInput [matDatepicker]="birthdatepicker" required placeholder="Wählen sie ihr Geburtsdatum aus!">
                 <mat-datepicker-toggle matSuffix [for]="birthdatepicker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
+                <mat-datepicker #birthdatepicker></mat-datepicker>
             </mat-form-field>
 
         </form>
@@ -59,6 +59,6 @@
     <button mat-flat-button color="primary" *ngIf="stepper.selectedIndex > 0"
         (click)="stepper.previous()">Zurück</button>
     <span style="flex: 1 1 auto;"></span>
-    <button mat-flat-button color="primary" *ngIf="stepper.selectedIndex == 2" (click)="finish()"
+    <button mat-flat-button color="primary" *ngIf="stepper.selectedIndex == 2" (click)="finish($event)"
         style="float: right;">Speichern</button>
 </mat-dialog-actions>
