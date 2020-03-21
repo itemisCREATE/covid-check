@@ -3,18 +3,27 @@ import 'package:covidcheckmobile/model/patient.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class PatientService {
-  Stream<List<Patient>> _getPatientStream(String useruid) async* {
-    var snapshots = Firestore.instance.collection('patient').where('useruid', isEqualTo: useruid).snapshots();
-    await for (QuerySnapshot sn in snapshots) {
-      yield sn.documents.map<Patient>((doc) => Patient.fromDocument(doc)).toList();
-    }
-  }
 
-  Stream<Patient> getPatient(String useruid) async* {
-    List<Patient> patients = await _getPatientStream(useruid).first;
-    for (Patient p in patients){
-      yield p;
+//  FUture<List<Patient>> _getPatientStream(String useruid) async* {
+//    var snapshots = Firestore.instance.collection('patient').where('useruid', isEqualTo: useruid).snapshots();
+//    if(await snapshots.isEmpty){
+//      yield [];
+//    }
+//    await for (QuerySnapshot sn in snapshots) {
+//      yield sn.documents.map<Patient>((doc) => Patient.fromDocument(doc)).toList();
+//    }
+//  }
+
+  Future<Patient> getPatient(String useruid) async {
+    var snapshots =  Firestore.instance.collection('patient').where('useruid', isEqualTo: useruid).snapshots();
+    if(await snapshots.isEmpty){
+      return null;
     }
+    var docs = (await snapshots.first).documents;
+    if(docs.isEmpty){
+      return null;
+    }
+    return Patient.fromDocument(docs.first);
   }
 
   void submitPatient(Patient patient, FirebaseUser user){

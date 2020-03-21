@@ -36,7 +36,7 @@ class Patient {
       address: doc['address'],
       zip: doc['zip'],
       city: doc['city'],
-      gender: Gender.values[doc['gender']],
+      gender: _genderForIndex(doc['gender']),
       examinations: doc['examinations']
     );
   }
@@ -56,6 +56,9 @@ class Patient {
 }
 
 Gender _genderForIndex(int index){
+  if(index == null){
+    return null;
+  }
   return Gender.values[index];
 }
 

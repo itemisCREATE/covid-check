@@ -22,13 +22,13 @@ class DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
-        stream: service.getPatient(user.uid),
+    return FutureBuilder(
+        future: service.getPatient(user.uid),
         builder: (context, snapshot) {
            if(snapshot.hasError){
              return Wizard(this.user);
            }
-           return snapshot.hasData ? Wizard(user) : Center(child:CircularProgressIndicator());
+           return snapshot.hasData ? Wizard(this.user) : Center(child:CircularProgressIndicator());
         }
     );
   }
