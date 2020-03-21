@@ -30,6 +30,14 @@ export class PatientListComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
+  dateOfBirthNullSafe(p:Patient){
+    if(p.dateOfBirth!=null){
+      return p.dateOfBirth.toDate();
+    } else {
+      return null;
+    }
+  }
+
   linkToExamination(p:Patient){
     
     if(p.examinations!=null 
