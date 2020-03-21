@@ -1,4 +1,5 @@
-<app-side-bar *ngIf="isLoggedIn(); else notLoggedIn"></app-side-bar>
+<app-nav-bar></app-nav-bar>
+<router-outlet *ngIf="isLoggedIn(); else notLoggedIn"></router-outlet>
 
 <ng-template #notLoggedIn>
     <app-home></app-home>

@@ -6,6 +6,7 @@ import { StatusCheckComponent } from './status-check/status-check.component';
 
 
 const routes: Routes = [
+  { path: '', redirectTo: '/patients', pathMatch: 'full' },
   { path: 'patients', component: PatientListComponent},
   { path: 'status', component: StatusCheckComponent}
 ];

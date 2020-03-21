@@ -1,53 +1,67 @@
-<mat-form-field>
-  <mat-label>Filter</mat-label>
-  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
-</mat-form-field>
 
+
+<mat-divider></mat-divider>
+<br />
+<mat-toolbar color="Accent">
+    <mat-toolbar-row>
+        <span>
+            <mat-form-field>
+                <mat-label>Suche nach</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
+              </mat-form-field>
+        </span>
+        <span class="example-fill-remaining-space"></span>
+        <span>
+            <button mat-flat-button color="primary" (click)='createPatient()'>Patient hinzufügen</button>
+        </span>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-divider></mat-divider>
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
     <!-- fileNumber Column -->
     <ng-container matColumnDef="fileNumber">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> File No </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Aktennummer</th>
       <td mat-cell *matCellDef="let element"> {{element.fileNumber}} </td>
     </ng-container>
   
     <!-- firstname Column -->
     <ng-container matColumnDef="firstname">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Vorname</th>
       <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
     </ng-container>
   
     <ng-container matColumnDef="lastname">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Nachname</th>
       <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
     </ng-container>
   
     <ng-container matColumnDef="street">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Street </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Adresse</th>
       <td mat-cell *matCellDef="let element"> {{element.street}} </td>
     </ng-container>
   
     <ng-container matColumnDef="zip">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Zip </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Postleitzahl</th>
       <td mat-cell *matCellDef="let element"> {{element.zip}} </td>
     </ng-container>
   
     <ng-container matColumnDef="city">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Ort</th>
       <td mat-cell *matCellDef="let element"> {{element.city}} </td>
     </ng-container>
    
     <ng-container matColumnDef="dateOfBirth">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Dafe of Birth </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Geburtsdatum</th>
       <td mat-cell *matCellDef="let element"> {{dateOfBirthNullSafe(element)| date: 'dd. MM. yyyy'  }} </td>-->
     </ng-container> 
 
     <ng-container matColumnDef="examinations">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Examination </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Tests</th>
       <td mat-cell *matCellDef="let element"> <a (click)="createTest()" routerLinkActive="active">{{linkToExamination(element)}} </a></td>
     </ng-container> 
     
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> 
+  <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons></mat-paginator> 

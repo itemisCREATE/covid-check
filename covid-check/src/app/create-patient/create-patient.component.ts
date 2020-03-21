@@ -39,12 +39,12 @@ export class CreatePatientComponent implements OnInit {
 
   finish(event : any) {
     const patient: Patient = {
-      firstname: this.firstname.nativeElement.value, lastname: this.lastname.nativeElement.value,
+      firstname: this.firstname.nativeElement.value, 
+      lastname: this.lastname.nativeElement.value,
       city: 'Lünen',
       fileNumber: '1', street: 'Test Str. 1', zip: '', id: '', gender: Gender.d
     } as undefined as Patient;
     this.patientService.addItem(patient);
-    //TODO Add to firebase
     this.dialogRef.close();
   }
 

@@ -43,6 +43,7 @@ import { CommonModule } from "@angular/common";
 import { FileUploadComponent } from './shared/file-upload/file-upload.component';
 import { StatusCheckComponent } from './status-check/status-check.component';
 import 'firebase/storage';
+import { PatientDetailComponent } from './patient-detail/patient-detail.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import 'firebase/storage';
     PortfolioComponent,
     HumanReadableExaminationListPipe,
     FileUploadComponent,
-    StatusCheckComponent
+    StatusCheckComponent,
+    PatientDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { DatePipe } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateTestComponent } from '../dialogs/create-test/create-test.component';
+import { CreatePatientComponent } from '../create-patient/create-patient.component';
 
 @Component({
   selector: 'app-patient-list',
@@ -32,8 +33,8 @@ export class PatientListComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  dateOfBirthNullSafe(p:Patient){
-    if(p.dateOfBirth!=null){
+  dateOfBirthNullSafe(p: Patient) {
+    if (p.dateOfBirth != null) {
       return p.dateOfBirth.toDate();
     } else {
       return null;
@@ -52,15 +53,15 @@ export class PatientListComponent implements OnInit {
     });
   }
 
-  linkToExamination(p:Patient){
-    var e:Examination;
-    if(p.examinations!=null && p.examinations.filter((e)=>{return e.status==ExaminationStatus.probeOutstanding}).length>0){
-      e=p.examinations.filter((e)=>{return e.status==ExaminationStatus.probeOutstanding})[0];
+  linkToExamination(p: Patient) {
+    var e: Examination;
+    if (p.examinations != null && p.examinations.filter((e) => { return e.status == ExaminationStatus.probeOutstanding }).length > 0) {
+      e = p.examinations.filter((e) => { return e.status == ExaminationStatus.probeOutstanding })[0];
     }
-    
-    if(e!=null){
+
+    if (e != null) {
       return 'Examination ' + e.id;
-    }else {
+    } else {
       return 'Create New';
     }
   }
@@ -68,5 +69,17 @@ export class PatientListComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  createPatient() {
+    const dialogRef = this.dialog.open(CreatePatientComponent, {
+      data: 'data'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        //TODO:
+        console.log('result');
+      }
+    });
   }
 }
