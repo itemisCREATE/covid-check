@@ -4,6 +4,7 @@ import { Location, Appearance } from '@angular-material-extensions/google-maps-a
 import { PatientService } from '../service/patient.service';
 import { Patient, Gender } from '../model/model';
 import PlaceResult = google.maps.places.PlaceResult;
+import { MatDatepicker } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-create-patient',
@@ -13,7 +14,7 @@ import PlaceResult = google.maps.places.PlaceResult;
 export class CreatePatientComponent implements OnInit {
 
   symptomdatepicker: string;
-  birthdatepicker: string;
+  birthdatepicker : MatDatepicker<Date>
 
   @ViewChild('firstname')
   firstname: ElementRef;
