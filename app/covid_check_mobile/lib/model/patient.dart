@@ -6,7 +6,7 @@ class Patient {
   String firstname;
   String lastname;
   Timestamp dateofbirth;
-  String address;
+  String street;
   String zip;
   String city;
   Gender gender;
@@ -20,27 +20,29 @@ class Patient {
         this.filenumber,
       this.firstname,
       this.lastname,
-      this.address,
+        this.dateofbirth,
+      this.street,
       this.zip,
       this.city,
       this.gender,
       this.examinations,
-      this.dateofbirth,
+      this.appointment,
       this.needsTesting=false});
 
   factory Patient.fromDocument(DocumentSnapshot doc) {
     print(doc.toString());
     return Patient(
         id: doc.documentID,
-
+        filenumber:  doc['filenumber'].toString(),
         firstname: doc['firstname'].toString(),
         lastname: doc['lastname'].toString(),
         dateofbirth: doc['dateofbirth'],
-        address: doc['address'],
+        street: doc['street'],
         zip: doc['zip'],
         city: doc['city'],
         gender: _genderForIndex(doc['gender']),
         needsTesting: _needsTesting(doc['needsTesting']),
+        appointment: doc['appointment'],
         examinations: doc['examinations']);
   }
 
@@ -50,10 +52,11 @@ class Patient {
       'firstname': this.firstname,
       'lastname': this.lastname,
       'dateofbirth': this.dateofbirth,
-      'address': this.address,
+      'address': this.street,
       'zip': this.zip,
       'city': this.city,
       'gender': this.gender,
+      'filenumber' : this.filenumber,
       'needsTesting': this.needsTesting,
     };
   }
@@ -79,12 +82,49 @@ class Examination {
   Timestamp date;
   String filenumber;
   int status;
+
+  Examination({
+    this.date,
+    this.filenumber,
+    this.status;
+  });
+
+  factory Examination.fromDocument(DocumentSnapshot doc) {
+    print(doc.toString());
+    return Examination(
+        filenumber:  doc['filenumber'].toString(),
+        date: doc['date'],
+        status: doc['status']
+    );
+  }
+
 }
 
 class Appointment {
-  Timestamp time;
+  Timestamp date;
+  String org;
   String room;
-  String address;
+  String street;
   String zip;
   String city;
+
+  Appointment({
+    this.date,
+    this.org,
+    this.room,
+    this.street,
+    this.zip,
+    this.city,
+  });
+
+  factory Appointment.fromDocument(DocumentSnapshot doc) {
+    return Appointment(
+        date: doc['date'],
+        org: doc['org'],
+        room: doc['room'],
+        street: doc['street'],
+        zip: doc['zip'],
+        city: doc['city']
+    );
+  }
 }
