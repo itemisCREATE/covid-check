@@ -1,3 +1,4 @@
 
 app/covid_check_mobile/android/app/google-services.json
 covid-check/src/environments/credentials.ts
+covid-check/credentials.ts
