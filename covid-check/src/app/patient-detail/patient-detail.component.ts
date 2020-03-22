@@ -17,7 +17,7 @@ export class PatientDetailComponent implements OnInit {
 
   patient: Patient;
   dateofbirth: Date;
-  panelOpenState = false;
+  panelOpenState = true;
 
   constructor(private stateService: PatientStateService, private patientService: PatientService, private router: Router) {
   }
@@ -35,6 +35,11 @@ export class PatientDetailComponent implements OnInit {
   save() {
     this.patient.dateofbirth = firebase.database.ServerValue.TIMESTAMP.constructor(this.dateofbirth);
     this.patientService.update(this.patient);
+  }
+
+  delete() {
+    this.patientService.delete(this.patient);
+    this.back();
   }
 }
 
