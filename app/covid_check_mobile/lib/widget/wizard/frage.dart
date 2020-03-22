@@ -58,7 +58,7 @@ class QuestionState extends State<Question>{
                                     onChanged: (newValue){
                                       setState(() {
                                         symptoms = newValue;
-                                        patient.needsTesting = patient.needsTesting || symptoms;
+                                        patient.needsTesting =  newValue;
                                       });
                                     }
                                 )
