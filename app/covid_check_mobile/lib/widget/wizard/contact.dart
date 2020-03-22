@@ -39,7 +39,7 @@ class ContactFormState extends State<ContactForm>{
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        FormTitle("Bitte geben Sie ihre E-Mail und Telefonnummer an damit wir Sie kontaktieren können", index),
+                        FormTitle("Bitte geben Sie Ihre E-Mail und Telefonnummer an damit wir Sie kontaktieren können", index),
                         SizedBox(height: 20.0),
                         TextFormField(
                             onSaved: (value) => email = value,

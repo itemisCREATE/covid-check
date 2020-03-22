@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:covidcheckmobile/screens/wizard/wizard.dart';
 import 'package:covidcheckmobile/model/patient.dart';
+import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';
 
 import 'title.dart';
@@ -49,7 +50,7 @@ class SubmitFormState extends State<SubmitForm>{
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        FormTitle("Übermitteln Sie ihre Daten um Terminvorschläge zu erhalten", index),
+                        FormTitle("Übermitteln Sie Ihre Daten um Terminvorschläge zu erhalten", index),
                         SizedBox(height: 20.0),
                         Container(
                           padding: const EdgeInsets.all(10.0),
@@ -79,6 +80,30 @@ class SubmitFormState extends State<SubmitForm>{
                                     ],
                                   )
                                 ],),
+                              ),
+                              Container(
+                                margin: EdgeInsets.all(6.0),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Text("Geburtstag: "),
+                                    Text(patient.dateofbirth != null ? 
+                                      DateFormat.yMMMd("de_DE").format(DateTime.fromMillisecondsSinceEpoch(patient.dateofbirth.millisecondsSinceEpoch)) : 
+                                      "-")
+                                  ]
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.all(6.0),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Text("Geschlecht: "),
+                                    Text(patient.gender != null ? 
+                                      _genderToText(patient.gender) : 
+                                      "-")
+                                  ]
+                                ),
                               ),
                               Container(
                                 margin: EdgeInsets.all(6.0),
@@ -142,6 +167,19 @@ class SubmitFormState extends State<SubmitForm>{
         ],
       ),
     );
+  }
+
+  String _genderToText(Gender gender) {
+    switch (gender) {
+      case Gender.m:
+        return "männlich";
+      case Gender.f:
+        return "weiblich";
+      case Gender.d:
+        return "divers";
+      default:
+        return "divers";
+    }
   }
 
   void submitData() {
