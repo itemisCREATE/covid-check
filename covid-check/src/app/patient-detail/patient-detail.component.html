@@ -1,76 +1,76 @@
 <mat-divider></mat-divider>
 <br />
 <mat-toolbar color="Accent">
-    <mat-toolbar-row>
-        <span>
-            <button mat-flat-button color="primary" (click)='back()'>zurück</button>
-        </span>
-    </mat-toolbar-row>
+  <mat-toolbar-row>
+    <span>
+      <button mat-flat-button color="primary" (click)='back()'>zurück</button>
+    </span>
+  </mat-toolbar-row>
 </mat-toolbar>
 <mat-divider></mat-divider>
 
 <mat-accordion>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-         Persönliche Daten
-        </mat-panel-title>
-        <mat-panel-description>
-         <!-- #{{patient.filenumber}} : {{patient.firstname}} {{patient.lastname}}, {{patient.dateofbirth}} -->
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <mat-form-field class="example-full-width">
-        <mat-label>Aktenzeichen</mat-label>
-        <input matInput [(ngModel)]="patient.filenumber">
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <mat-label>Vorname</mat-label>
-        <input matInput [(ngModel)]="patient.firstname">
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <mat-label>Nachname</mat-label>
-        <input matInput [(ngModel)]="patient.lastname">
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <mat-label>Geburtstag</mat-label>
-        <input matInput [(ngModel)]="patient.dateofbirth">
-      </mat-form-field>
-      <button mat-flat-button color="primary" (click)='save()'>update</button>
-  
-    </mat-expansion-panel>    
-    <mat-expansion-panel (opened)="panelOpenState = true"
-                         (closed)="panelOpenState = false">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Adresse
-        </mat-panel-title>
-        <mat-panel-description>
-          {{patient.street}} {{patient.zip}}, {{patient.city}}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <mat-form-field class="example-full-width">
-        <mat-label>Straße</mat-label>
-        <input matInput [value]="patient.street">
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <mat-label>Postleitzahl</mat-label>
-        <input matInput  [value]="patient.zip">
-      </mat-form-field>
-  
-      <mat-form-field class="example-full-width">
-        <mat-label>Stadt</mat-label>
-        <input matInput  [value]="patient.city">
-      </mat-form-field>
-    </mat-expansion-panel>
-    <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            laufende Untersuchungen
-          </mat-panel-title>
-          <mat-panel-description>
-            1 ongoing examination
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-        
-      </mat-expansion-panel>       
-  </mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Persönliche Daten
+      </mat-panel-title>
+      <mat-panel-description>
+        <!-- #{{patient.filenumber}} : {{patient.firstname}} {{patient.lastname}}, {{patient.dateofbirth}} -->
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-form-field class="example-full-width">
+      <mat-label>Aktenzeichen</mat-label>
+      <input matInput [(ngModel)]="patient.filenumber">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Vorname</mat-label>
+      <input matInput [(ngModel)]="patient.firstname">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Nachname</mat-label>
+      <input matInput [(ngModel)]="patient.lastname">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Geburtstag</mat-label>
+      <input matInput [(ngModel)]="patient.dateofbirth">
+    </mat-form-field>
+    <button mat-flat-button color="primary" (click)='save()'>update</button>
+
+  </mat-expansion-panel>
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Adresse
+      </mat-panel-title>
+      <mat-panel-description>
+        <!-- {{patient.street}} {{patient.zip}}, {{patient.city}} -->
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-form-field class="example-full-width">
+      <mat-label>Straße</mat-label>
+      <input matInput [(ngModel)]="patient.street">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Postleitzahl</mat-label>
+      <input matInput [(ngModel)]="patient.zip">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Stadt</mat-label>
+      <input matInput [(ngModel)]="patient.city">
+    </mat-form-field>
+    <button mat-flat-button color="primary" (click)='save()'>update</button>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        laufende Untersuchungen
+      </mat-panel-title>
+      <mat-panel-description>
+        1 ongoing examination
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+  </mat-expansion-panel>
+</mat-accordion>
