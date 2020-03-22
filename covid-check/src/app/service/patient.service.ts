@@ -11,12 +11,12 @@ import { map } from "rxjs/operators";
 })
 export class PatientService {
 
-  private itemsCollection: AngularFirestoreCollection<Patient>;
+  private patientCollection: AngularFirestoreCollection<Patient>;
   patients: Observable<Patient[]>;
 
   constructor(private afs: AngularFirestore) {
-    this.itemsCollection = afs.collection<Patient>('patient');
-    this.patients = this.itemsCollection.snapshotChanges().pipe(map(patient => {
+    this.patientCollection = afs.collection<Patient>('patient');
+    this.patients = this.patientCollection.snapshotChanges().pipe(map(patient => {
       return patient.map(a => {
         const data = a.payload.doc.data() as Patient;
         const id = a.payload.doc.id;
@@ -26,12 +26,16 @@ export class PatientService {
     }))
   }
 
-  addItem(item: Patient) {
-    this.itemsCollection.add(item);
+  addItem(patient: Patient) {
+    this.patientCollection.add(patient);
   }
-  update(item: Patient) {
-    const itemDoc = this.afs.collection<Patient>('patient/').doc(item.id);
-    console.log("Update " + item.firstname);
-    itemDoc.update(item);
+  update(patient: Patient) {
+    const patientDoc = this.afs.collection<Patient>('patient/').doc(patient.id);
+    patientDoc.update(patient);
+  }
+
+  delete(patient: Patient) {
+    const patientDoc = this.afs.collection<Patient>('patient/').doc(patient.id);
+    patientDoc.delete();
   }
 }

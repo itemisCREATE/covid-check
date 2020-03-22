@@ -4,13 +4,15 @@
   <mat-toolbar-row>
     <span>
       <button mat-flat-button color="primary" (click)='back()'>zurück</button>
+      <span class="example-fill-remaining-space"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button mat-flat-button color="primary" (click)='delete()'>Patient löschen</button>
     </span>
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-divider></mat-divider>
 
 <mat-accordion>
-  <mat-expansion-panel>
+  <mat-expansion-panel [expanded]="true">
     <mat-expansion-panel-header>
       <mat-panel-title>
         Persönliche Daten
