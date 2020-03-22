@@ -32,6 +32,7 @@ dependencies:
   firebase_dynamic_links: ^0.3.0
   flutter_auth_buttons: ^0.6.0
   font_awesome_flutter: ^8.5.0
+  firebase_messaging: ^6.0.13
 
 dev_dependencies:
   flutter_test:

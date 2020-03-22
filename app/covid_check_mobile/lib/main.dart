@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:covidcheckmobile/widget/auth.dart';
 import 'package:covidcheckmobile/screens/login/login.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+
 
 void main() => runApp(ChangeNotifierProvider<Authentication>(
       child: CovidCheck(),
@@ -43,8 +45,15 @@ class CovidCheckHome extends StatefulWidget {
 }
 
 class _CovidCheckHomeState extends State<CovidCheckHome> {
+
+  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+
+
   @override
   Widget build(BuildContext context) {
+    _firebaseMessaging.requestNotificationPermissions();
+    _firebaseMessaging.configure();
+
     return FutureBuilder<FirebaseUser>(
       future: Provider.of<Authentication>(context).getUser(),
       builder: (context, AsyncSnapshot<FirebaseUser> snapshot) {

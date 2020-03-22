@@ -24,20 +24,36 @@ class Status extends StatelessWidget {
               children: <Widget>[
                 ListTile(
                   leading: Icon(Icons.calendar_today, size: 50),
-                  title: Text('Terminvorschlag'),
+                  title: Text('Termin'),
                   subtitle: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
+                      SizedBox(height: 10.0),
                       Row(
                         children: <Widget>[
                           const Text('19.03.20 '),
-                          const Text('8:00'),
+                          const Text('8:00 Uhr'),
+                        ],
+                      ),
+                      SizedBox(height: 10.0),
+                      Row(
+                        children: <Widget>[
+                          const Text('Raum 42.42'),
                         ],
                       ),
                       Row(
                         children: <Widget>[
                           const Text('Gesundheitsamt DO'),
-                          const Text('An der Ecke 13'),
+                        ],
+                      ),
+                      Row(
+                        children: <Widget>[
+                          const Text('Hoher Wall 9-11')
+                        ],
+                      ),
+                      Row(
+                        children: <Widget>[
+                          const Text('44137 Dortmund')
                         ],
                       ),
                     ],
