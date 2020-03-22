@@ -23,7 +23,7 @@ export class PatientListComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
-  constructor(private patientService: PatientService, private dialog: MatDialog, private router: Router, private patientState : PatientStateService) {
+  constructor(private patientService: PatientService, private dialog: MatDialog, private router: Router, private patientState: PatientStateService) {
   }
 
   ngOnInit(): void {
@@ -36,13 +36,14 @@ export class PatientListComponent implements OnInit {
   }
 
   dateOfBirthNullSafe(p: Patient) {
-    if (p.dateofbirth != null) {
+    if (p.dateofbirth !== undefined) {
+      console.log(p)
       return p.dateofbirth.toDate();
     } else {
       return null;
     }
   }
-  
+
   linkToExamination(p: Patient) {
     var e: Examination;
     if (p.examinations != null && p.examinations.filter((e) => { return e.status == ExaminationStatus.probeOutstanding }).length > 0) {
@@ -54,7 +55,7 @@ export class PatientListComponent implements OnInit {
     } else {
       return 'Create New';
     }
-    
+
   }
 
   applyFilter(event: Event) {

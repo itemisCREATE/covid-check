@@ -8,6 +8,7 @@ import PlaceResult = google.maps.places.PlaceResult;
 import { MatDatepicker } from '@angular/material/datepicker';
 import { concat } from 'rxjs';
 import { concatAll } from 'rxjs/operators';
+import { database } from 'firebase/app';
 
 @Component({
   selector: 'app-create-patient',
@@ -16,8 +17,8 @@ import { concatAll } from 'rxjs/operators';
 })
 export class CreatePatientComponent implements OnInit {
 
-  symptomdatepicker: string;
-  birthdatepicker : MatDatepicker<Date>
+  @ViewChild('birthdatepicker')
+  birthdatepicker: MatDatepicker<Date>;
 
   @ViewChild('firstname')
   firstname: ElementRef;
@@ -40,16 +41,17 @@ export class CreatePatientComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  finish(event : any) {
+  finish(event: any) {
     const patient: Patient = {
-      firstname: this.firstname.nativeElement.value, 
+      firstname: this.firstname.nativeElement.value,
       lastname: this.lastname.nativeElement.value,
       city: this.placeResult.address_components[4].long_name,
-      street: this.placeResult. address_components[1].long_name + ' ' + this.placeResult.address_components[0].long_name, 
-      zip: this.placeResult.address_components[this.placeResult.address_components.length-1].long_name, 
-      fileNumber: uuid(), 
-      gender: Gender.d
-    } as undefined as Patient;
+      street: this.placeResult.address_components[1].long_name + ' ' + this.placeResult.address_components[0].long_name,
+      zip: this.placeResult.address_components[this.placeResult.address_components.length - 1].long_name,
+      filenumber: uuid(),
+      dateofbirth: database.ServerValue.TIMESTAMP.constructor(this.birthdatepicker._datepickerInput.value),
+      gender: Gender.d,
+    } as any as Patient;
     this.patientService.addItem(patient);
     this.dialogRef.close();
   }

@@ -16,22 +16,25 @@ import { CreateTestComponent } from '../dialogs/create-test/create-test.componen
 export class PatientDetailComponent implements OnInit {
 
   patient: Patient;
+  dateofbirth: Date;
   panelOpenState = false;
 
-  constructor(private stateService: PatientStateService, private patientService: PatientService,  private router: Router) {
+  constructor(private stateService: PatientStateService, private patientService: PatientService, private router: Router) {
   }
 
   ngOnInit(): void {
     this.patient = this.stateService.patient;
+    this.dateofbirth = this.patient.dateofbirth?.toDate();
   }
 
-  back(){
+  back() {
     this.stateService.patient = null;
     this.router.navigate(['/patients']);
   }
 
-  save(){
-    this.patientService.update(this.patient)
+  save() {
+    this.patient.dateofbirth = firebase.database.ServerValue.TIMESTAMP.constructor(this.dateofbirth);
+    this.patientService.update(this.patient);
   }
 }
 

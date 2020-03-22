@@ -32,8 +32,10 @@
       <input matInput [(ngModel)]="patient.lastname">
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <mat-label>Geburtstag</mat-label>
-      <input matInput [(ngModel)]="patient.dateofbirth">
+      <mat-label>Geburtsdatum</mat-label>
+      <input matInput [matDatepicker]="birthdatepicker" required placeholder="Wählen sie ihr Geburtsdatum aus!" [(ngModel)]="dateofbirth">
+      <mat-datepicker-toggle matSuffix [for]="birthdatepicker"></mat-datepicker-toggle>
+      <mat-datepicker #birthdatepicker></mat-datepicker>
     </mat-form-field>
     <button mat-flat-button color="primary" (click)='save()'>update</button>
 
