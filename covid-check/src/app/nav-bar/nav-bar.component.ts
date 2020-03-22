@@ -19,8 +19,10 @@ export class NavBarComponent {
 
   loginWithGoogle() {
     this.authService.signInWithGoogle();
-    this.name = this.authService.userDetails.displayName;
-  }
+    if (this.authService.userDetails !== undefined){
+      this.name = this.authService.userDetails.displayName;
+    }
+   }
 
   logout() {
     this.authService.logout();

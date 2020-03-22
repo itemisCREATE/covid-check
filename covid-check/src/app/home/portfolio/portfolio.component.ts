@@ -19,7 +19,9 @@ export class PortfolioComponent {
 
   loginWithGoogle() {
     this.authService.signInWithGoogle();
-    this.name = this.authService.userDetails.displayName;
+    if (this.authService.userDetails !== undefined){
+      this.name = this.authService.userDetails.displayName;
+    }
   }
 
   logout() {
