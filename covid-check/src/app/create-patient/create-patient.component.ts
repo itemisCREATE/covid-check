@@ -45,10 +45,9 @@ export class CreatePatientComponent implements OnInit {
       firstname: this.firstname.nativeElement.value, 
       lastname: this.lastname.nativeElement.value,
       city: this.placeResult.address_components[4].long_name,
-      fileNumber: '1', 
       street: this.placeResult. address_components[1].long_name + ' ' + this.placeResult.address_components[0].long_name, 
       zip: this.placeResult.address_components[this.placeResult.address_components.length-1].long_name, 
-      id: uuid(), 
+      fileNumber: uuid(), 
       gender: Gender.d
     } as undefined as Patient;
     this.patientService.addItem(patient);
@@ -57,7 +56,6 @@ export class CreatePatientComponent implements OnInit {
 
   onAutocompleteSelected(result: PlaceResult) {
     this.placeResult = result;
-    console.log(this.placeResult.address_components)
   }
   onLocationSelected(location: Location) {
     this.latitude = location.latitude;

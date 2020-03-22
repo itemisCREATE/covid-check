@@ -44,6 +44,7 @@ import { FileUploadComponent } from './shared/file-upload/file-upload.component'
 import { StatusCheckComponent } from './status-check/status-check.component';
 import 'firebase/storage';
 import { PatientDetailComponent } from './patient-detail/patient-detail.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -88,6 +89,7 @@ import { PatientDetailComponent } from './patient-detail/patient-detail.componen
     QRCodeModule,
     CommonModule,
     FlexLayoutModule,
+    FormsModule,
     MatGoogleMapsAutocompleteModule,
     AgmCoreModule.forRoot({
       apiKey: environment.firebase.mapsApiKey,
