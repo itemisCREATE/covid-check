@@ -6,6 +6,8 @@ import 'package:provider/provider.dart';
 import 'package:covidcheckmobile/widget/auth.dart';
 import 'package:covidcheckmobile/screens/login/login.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:intl/date_symbol_data_local.dart';
+import 'package:intl/intl.dart';
 
 
 void main() => runApp(ChangeNotifierProvider<Authentication>(
@@ -21,6 +23,8 @@ class CovidCheck extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    initializeDateFormatting();
+    Intl.defaultLocale = "de_DE";
 
     _firebaseMessaging.requestNotificationPermissions();
     _firebaseMessaging.configure();
