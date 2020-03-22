@@ -14,7 +14,6 @@ import { PatientStateService } from '../patient-state.service';
 export class ExaminationListComponent implements OnInit {
 
   dataSource = new MatTableDataSource();
-  patient: Patient;
   examinations: Examination[];
 
   displayedColumns: string[] = ['fileNumber', 'date', 'status'];
@@ -25,7 +24,6 @@ export class ExaminationListComponent implements OnInit {
     private patientStateService: PatientStateService) { }
 
   ngOnInit(): void {
-    this.examinations = this.patientStateService.patient.examinations;
     this.dataSource.data = this.examinations;
   }
 
@@ -39,7 +37,7 @@ export class ExaminationListComponent implements OnInit {
 
   stateNullSafe(p: Examination) {
     if (p.status !== undefined) {
-      return p.status.toLocaleString();
+      return ExaminationStatus[p.status].toLocaleString();
     } else {
       return 'unknown';
     }
