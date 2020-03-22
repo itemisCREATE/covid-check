@@ -1,29 +1,38 @@
+<mat-divider></mat-divider>
+<br />
+<mat-toolbar color="Accent">
+    <mat-toolbar-row>
+        <span>
+            <button mat-flat-button color="primary" (click)='back()'>zurück</button>
+        </span>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-divider></mat-divider>
 
-<table><tr><td>Hier Navigation zurück zur Übersicht</td><td><h1>Patient data of {{patient.firstname}} {{patient.lastname}}</h1></td></tr></table>
 <mat-accordion>
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          Personal data
+         Persönliche Daten
         </mat-panel-title>
         <mat-panel-description>
           #{{patient.filenumber}} : {{patient.firstname}} {{patient.lastname}}, {{patient.dateofbirth}}
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <mat-form-field>
-        <mat-label>File No</mat-label>
+      <mat-form-field class="example-full-width">
+        <mat-label>Aktenzeichen</mat-label>
         <input matInput [value]="patient.filenumber">
       </mat-form-field>
-      <mat-form-field>
-        <mat-label>First name</mat-label>
+      <mat-form-field class="example-full-width">
+        <mat-label>Vorname</mat-label>
         <input matInput [value]="patient.firstname">
       </mat-form-field>
-      <mat-form-field>
-        <mat-label>Last name</mat-label>
+      <mat-form-field class="example-full-width">
+        <mat-label>Nachname</mat-label>
         <input matInput [value]="patient.lastname">
       </mat-form-field>
-      <mat-form-field>
-        <mat-label>DateOfBirth</mat-label>
+      <mat-form-field class="example-full-width">
+        <mat-label>Geburtstag</mat-label>
         <input matInput [value]="patient.dateofbirth">
       </mat-form-field>
   
@@ -32,31 +41,30 @@
                          (closed)="panelOpenState = false">
       <mat-expansion-panel-header>
         <mat-panel-title>
-          Address
+          Adresse
         </mat-panel-title>
         <mat-panel-description>
           {{patient.street}} {{patient.zip}}, {{patient.city}}
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <p>I'm visible because I am open</p>
-      <mat-form-field>
-        <mat-label>Street</mat-label>
+      <mat-form-field class="example-full-width">
+        <mat-label>Straße</mat-label>
         <input matInput [value]="patient.street">
       </mat-form-field>
-      <mat-form-field>
-        <mat-label>Zip</mat-label>
+      <mat-form-field class="example-full-width">
+        <mat-label>Postleitzahl</mat-label>
         <input matInput  [value]="patient.zip">
       </mat-form-field>
   
-      <mat-form-field>
-        <mat-label>City</mat-label>
+      <mat-form-field class="example-full-width">
+        <mat-label>Stadt</mat-label>
         <input matInput  [value]="patient.city">
       </mat-form-field>
     </mat-expansion-panel>
     <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
-            Examinations
+            laufende Untersuchungen
           </mat-panel-title>
           <mat-panel-description>
             1 ongoing examination

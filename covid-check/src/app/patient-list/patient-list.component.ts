@@ -10,6 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { CreateTestComponent } from '../dialogs/create-test/create-test.component';
 import { CreatePatientComponent } from '../create-patient/create-patient.component';
 import { Router } from '@angular/router';
+import { PatientStateService } from '../patient-state.service';
 
 @Component({
   selector: 'app-patient-list',
@@ -22,7 +23,7 @@ export class PatientListComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
-  constructor(private patientService: PatientService, private dialog: MatDialog, private router: Router) {
+  constructor(private patientService: PatientService, private dialog: MatDialog, private router: Router, private patientState : PatientStateService) {
   }
 
   ngOnInit(): void {
@@ -85,6 +86,7 @@ export class PatientListComponent implements OnInit {
   }
 
   select(patient: Patient) {
+    this.patientState.patient = patient;
     this.router.navigate(['/patient-detail']);
   }
 }
