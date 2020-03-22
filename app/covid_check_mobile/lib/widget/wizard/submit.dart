@@ -145,6 +145,6 @@ class SubmitFormState extends State<SubmitForm>{
 
   void submitData() {
     service.submitPatient(Wizard.of(context).patient, Wizard.of(context).user);
-
+    Navigator.of(context).pop();
   }
 }
