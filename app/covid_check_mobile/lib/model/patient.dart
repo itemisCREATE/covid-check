@@ -86,7 +86,7 @@ class Examination {
   Examination({
     this.date,
     this.filenumber,
-    this.status;
+    this.status,
   });
 
   factory Examination.fromDocument(DocumentSnapshot doc) {
