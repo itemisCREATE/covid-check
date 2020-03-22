@@ -1,5 +1,5 @@
 export interface Patient {
-    id: string; //technical ID for firebase -> internal use only
+    id?: string; //technical ID for firebase -> internal use only
     // inspired by RKI form = Aktenzeichen
     filenumber: string;
     firstname: string;
@@ -27,7 +27,7 @@ export enum ExaminationStatus {
 
 
 export interface Examination {
-    id: string; //technical ID for firebase -> internal use only
+    id?: string; //technical ID for firebase -> internal use only
     // inspired by RKI form = Aktenzeichen
     filenumber: string;
     date: firebase.firestore.Timestamp;

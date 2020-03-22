@@ -51,7 +51,7 @@ export class CreatePatientComponent implements OnInit {
       filenumber: uuid(),
       dateofbirth: database.ServerValue.TIMESTAMP.constructor(this.birthdatepicker._datepickerInput.value),
       gender: Gender.d,
-    } as any as Patient;
+    };
     this.patientService.addItem(patient);
     this.dialogRef.close();
   }

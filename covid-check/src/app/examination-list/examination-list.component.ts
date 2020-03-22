@@ -3,7 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { CreateTestComponent } from '../dialogs/create-test/create-test.component';
 import { MatTableDataSource } from '@angular/material/table';
 import { PatientService } from '../service/patient.service';
-import { Examination } from '../model/model';
+import { Examination, Patient, ExaminationStatus } from '../model/model';
+import { PatientStateService } from '../patient-state.service';
 
 @Component({
   selector: 'app-examination-list',
@@ -13,16 +14,19 @@ import { Examination } from '../model/model';
 export class ExaminationListComponent implements OnInit {
 
   dataSource = new MatTableDataSource();
+  patient: Patient;
+  examinations: Examination[];
 
   displayedColumns: string[] = ['fileNumber', 'date', 'status'];
 
-  constructor(private dialog: MatDialog, private patientService: PatientService) { }
+  constructor(
+    private dialog: MatDialog,
+    private patientService: PatientService,
+    private patientStateService: PatientStateService) { }
 
   ngOnInit(): void {
-    this.patientService.patients.subscribe({
-      next: (patientList) => this.dataSource.data = patientList,
-      error: (error) => console.log(error)
-    });
+    this.examinations = this.patientStateService.patient.examinations;
+    this.dataSource.data = this.examinations;
   }
 
   dateNullSafe(p: Examination) {
@@ -30,6 +34,14 @@ export class ExaminationListComponent implements OnInit {
       return p.date.toDate();
     } else {
       return null;
+    }
+  }
+
+  stateNullSafe(p: Examination) {
+    if (p.status !== undefined) {
+      return p.status.toLocaleString();
+    } else {
+      return 'unknown';
     }
   }
 
@@ -50,6 +62,6 @@ export class ExaminationListComponent implements OnInit {
   }
 
   select(examination: Examination) {
-    
+
   }
 }
