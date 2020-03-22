@@ -38,4 +38,9 @@ export class PatientService {
     const patientDoc = this.afs.collection<Patient>('patient/').doc(patient.id);
     patientDoc.delete();
   }
+
+  patientObservable(patient: Patient): Observable<Patient> {
+    const patientDoc = this.afs.collection<Patient>('patient/').doc(patient.id);
+    return patientDoc.snapshotChanges().pipe(map(actions => actions.payload.data() as Patient));
+  }
 }

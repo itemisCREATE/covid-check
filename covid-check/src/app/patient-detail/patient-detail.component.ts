@@ -16,7 +16,7 @@ import { CreateTestComponent } from '../dialogs/create-test/create-test.componen
 export class PatientDetailComponent implements OnInit {
 
   patient: Patient;
-  dateofbirth: Date;
+  dateofbirth = new Date();
   panelOpenState = true;
 
   constructor(private stateService: PatientStateService, private patientService: PatientService, private router: Router) {

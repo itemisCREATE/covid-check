@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Patient } from './model/model';
 
 @Injectable({
@@ -6,7 +6,17 @@ import { Patient } from './model/model';
 })
 export class PatientStateService {
 
-  public patient : Patient;
- 
+  private _patient: Patient;
+
   constructor() { }
+
+
+  public set patient(v: Patient) {
+    this._patient = v;
+  }
+
+  public get patient(): Patient {
+    return this._patient;
+  }
+
 }
