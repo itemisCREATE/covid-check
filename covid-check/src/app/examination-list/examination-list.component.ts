@@ -48,4 +48,8 @@ export class ExaminationListComponent implements OnInit {
       }
     });
   }
+
+  select(examination: Examination) {
+    
+  }
 }
