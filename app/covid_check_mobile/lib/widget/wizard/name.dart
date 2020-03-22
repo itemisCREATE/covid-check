@@ -67,7 +67,7 @@ class NameFormState extends State<NameForm>{
                           decoration: InputDecoration(labelText: "Geburtstag"),
                           onChanged: (value) => setState(() {
                             _selectedDate = value;
-                            patient.dateofbirth = Timestamp.fromMicrosecondsSinceEpoch(_selectedDate.millisecondsSinceEpoch);
+                            patient.dateofbirth = Timestamp.fromMillisecondsSinceEpoch(_selectedDate.millisecondsSinceEpoch);
                           }),
                           onShowPicker: (context, currentValue) {
                             return showDatePicker(
