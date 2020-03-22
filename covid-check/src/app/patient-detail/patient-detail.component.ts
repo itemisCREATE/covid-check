@@ -5,6 +5,8 @@ import * as firebase from 'firebase';
 import { PatientStateService } from '../patient-state.service';
 import { Router } from '@angular/router';
 import { PatientService } from '../service/patient.service';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateTestComponent } from '../dialogs/create-test/create-test.component';
 
 @Component({
   selector: 'app-patient-detail',
@@ -31,6 +33,5 @@ export class PatientDetailComponent implements OnInit {
   save(){
     this.patientService.update(this.patient)
   }
-
 }
 

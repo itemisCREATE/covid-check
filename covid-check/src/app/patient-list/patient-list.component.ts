@@ -19,7 +19,7 @@ import { PatientStateService } from '../patient-state.service';
 })
 export class PatientListComponent implements OnInit {
   dataSource = new MatTableDataSource();
-  displayedColumns: string[] = ['fileNumber', 'firstname', 'lastname', 'dateOfBirth', 'street', 'zip', 'city', 'examinations'];
+  displayedColumns: string[] = ['fileNumber', 'firstname', 'lastname', 'dateOfBirth', 'street', 'zip', 'city'];
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
@@ -27,7 +27,7 @@ export class PatientListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.patientService.items.subscribe({
+    this.patientService.patients.subscribe({
       next: (patientList) => this.dataSource.data = patientList,
       error: (error) => console.log(error)
     });
@@ -42,19 +42,7 @@ export class PatientListComponent implements OnInit {
       return null;
     }
   }
-
-  createTest() {
-    const dialogRef = this.dialog.open(CreateTestComponent, {
-      data: 'data'
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        //TODO:
-        console.log('result');
-      }
-    });
-  }
-
+  
   linkToExamination(p: Patient) {
     var e: Examination;
     if (p.examinations != null && p.examinations.filter((e) => { return e.status == ExaminationStatus.probeOutstanding }).length > 0) {
@@ -66,6 +54,7 @@ export class PatientListComponent implements OnInit {
     } else {
       return 'Create New';
     }
+    
   }
 
   applyFilter(event: Event) {

@@ -27,8 +27,9 @@ export enum ExaminationStatus {
 
 
 export interface Examination {
-    // human readable id
-    id: string;
+    id: string; //technical ID for firebase -> internal use only
+    // inspired by RKI form = Aktenzeichen
+    filenumber: string;
     date: firebase.firestore.Timestamp;
     nameOfLocation?: string;
     nameOfContactPerson?: string;
@@ -41,7 +42,6 @@ export interface Examination {
     currentSymptoms?: string;
     contactToSuspectPersons?: boolean;
     status: ExaminationStatus;
-    patient: Patient;
 }
 export enum ProbeResult {
     unknown = 0,

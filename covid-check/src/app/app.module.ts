@@ -45,6 +45,7 @@ import { StatusCheckComponent } from './status-check/status-check.component';
 import 'firebase/storage';
 import { PatientDetailComponent } from './patient-detail/patient-detail.component';
 import { FormsModule } from '@angular/forms';
+import { ExaminationListComponent } from './examination-list/examination-list.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { FormsModule } from '@angular/forms';
     HumanReadableExaminationListPipe,
     FileUploadComponent,
     StatusCheckComponent,
-    PatientDetailComponent
+    PatientDetailComponent,
+    ExaminationListComponent
   ],
   imports: [
     BrowserModule,

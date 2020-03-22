@@ -12,11 +12,11 @@ import { map } from "rxjs/operators";
 export class PatientService {
 
   private itemsCollection: AngularFirestoreCollection<Patient>;
-  items: Observable<Patient[]>;
+  patients: Observable<Patient[]>;
 
   constructor(private afs: AngularFirestore) {
     this.itemsCollection = afs.collection<Patient>('patient');
-    this.items = this.itemsCollection.snapshotChanges().pipe(map(patient => {
+    this.patients = this.itemsCollection.snapshotChanges().pipe(map(patient => {
       return patient.map(a => {
         const data = a.payload.doc.data() as Patient;
         const id = a.payload.doc.id;
