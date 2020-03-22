@@ -3,7 +3,7 @@ import 'package:covidcheckmobile/model/patient.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class PatientService {
-  
+
   Stream<Patient> getPatient(String useruid) async* {
     var snapshots =  Firestore.instance.collection('patient').where('useruid', isEqualTo: useruid).snapshots();
       await for (QuerySnapshot sn in snapshots){

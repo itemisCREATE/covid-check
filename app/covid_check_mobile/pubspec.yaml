@@ -33,6 +33,7 @@ dependencies:
   flutter_auth_buttons: ^0.6.0
   font_awesome_flutter: ^8.5.0
   firebase_messaging: ^6.0.13
+  uuid: ^2.0.4
 
 dev_dependencies:
   flutter_test:

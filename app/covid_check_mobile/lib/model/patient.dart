@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Patient {
   String id;
+  String filenumber;
   String firstname;
   String lastname;
   Timestamp dateofbirth;
@@ -14,7 +15,9 @@ class Patient {
   bool needsTesting = true;
 
   Patient(
-      {this.id,
+      {
+        this.id,
+        this.filenumber,
       this.firstname,
       this.lastname,
       this.address,
@@ -23,12 +26,13 @@ class Patient {
       this.gender,
       this.examinations,
       this.dateofbirth,
-      this.needsTesting});
+      this.needsTesting=false});
 
   factory Patient.fromDocument(DocumentSnapshot doc) {
     print(doc.toString());
     return Patient(
         id: doc.documentID,
+
         firstname: doc['firstname'].toString(),
         lastname: doc['lastname'].toString(),
         dateofbirth: doc['dateofbirth'],
@@ -36,7 +40,7 @@ class Patient {
         zip: doc['zip'],
         city: doc['city'],
         gender: _genderForIndex(doc['gender']),
-        needsTesting: doc['needsTesting'],
+        needsTesting: _needsTesting(doc['needsTesting']),
         examinations: doc['examinations']);
   }
 
@@ -60,6 +64,13 @@ Gender _genderForIndex(int index) {
     return null;
   }
   return Gender.values[index];
+}
+
+bool _needsTesting(bool needsTesting) {
+  if (needsTesting == null) {
+    return false;
+  }
+  return needsTesting;
 }
 
 enum Gender { m, f, d }

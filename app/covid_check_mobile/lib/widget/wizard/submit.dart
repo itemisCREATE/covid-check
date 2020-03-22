@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:covidcheckmobile/screens/wizard/wizard.dart';
 import 'package:covidcheckmobile/model/patient.dart';
+import 'package:uuid/uuid.dart';
 
 import 'title.dart';
 
@@ -144,7 +145,9 @@ class SubmitFormState extends State<SubmitForm>{
   }
 
   void submitData() {
-    service.submitPatient(Wizard.of(context).patient, Wizard.of(context).user);
+    Patient currentPatient = Wizard.of(context).patient;
+    currentPatient.filenumber = Uuid().v4();
+    service.submitPatient(currentPatient, Wizard.of(context).user);
     Navigator.of(context).pop();
   }
 }
