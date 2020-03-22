@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
+import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 
 import '../../screens/wizard/wizard.dart';
 import '../../model/patient.dart';
@@ -60,16 +61,24 @@ class NameFormState extends State<NameForm>{
                             onChanged: (value) => patient.lastname = value,
                             decoration:
                             InputDecoration(labelText: "Nachname")),
-                        SizedBox(height: 30.0),
-                        GestureDetector(
-                          onTap: () => _selectDate(context),
-                          child: Row(children: <Widget>[
-                            Icon(FontAwesomeIcons.birthdayCake, color: Colors.grey[600],),
-                            SizedBox(width: 20.0),
-                            Text(DateFormat.yMMMEd().format(_selectedDate)),
-                          ]),
+                        SizedBox(height: 20.0),
+                        DateTimeField(
+                          format: DateFormat.yMMMd("de_DE"),
+                          decoration: InputDecoration(labelText: "Geburtstag"),
+                          onChanged: (value) => setState(() {
+                            _selectedDate = value;
+                            patient.dateofbirth = Timestamp.fromMicrosecondsSinceEpoch(_selectedDate.millisecondsSinceEpoch);
+                          }),
+                          onShowPicker: (context, currentValue) {
+                            return showDatePicker(
+                                //locale: Locale(Intl.getCurrentLocale()),
+                                context: context,
+                                firstDate: DateTime(1900),
+                                initialDate: currentValue ?? DateTime.now(),
+                                lastDate: DateTime.now());
+                          },
                         ),
-                        SizedBox(height: 30.0),
+                        SizedBox(height: 20.0),
                         Row(
                           children: <Widget>[
                             DropdownButton(
@@ -116,20 +125,5 @@ class NameFormState extends State<NameForm>{
       default:
         return Icon(FontAwesomeIcons.genderless);
     }
-  } 
-
-  Future<Null> _selectDate(BuildContext context) async {
-    Patient patient = Wizard.of(context).patient;
-
-    final DateTime picked = await showDatePicker(
-        context: context,
-        initialDate: _selectedDate,
-        firstDate: DateTime(1900),
-        lastDate: DateTime.now());
-    if (picked != null && picked != _selectedDate)
-      setState(() {
-        _selectedDate = picked;
-        patient.dateofbirth = Timestamp.fromMicrosecondsSinceEpoch(_selectedDate.millisecondsSinceEpoch);
-      });
   }
 }
