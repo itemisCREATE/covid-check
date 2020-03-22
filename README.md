@@ -3,6 +3,8 @@ Our contribution for the german https://wirvsvirushackathon.org/
 Covid-Check is a collaboration platform for patients, doctors and other medical stuff written in angular/typscript.
 Mobil Apps for patients written in Flutter are also available.
 
+![Alt text](/documentation/screenshots/screenshot.png?raw=true)
+
 # CovidCheck
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.2.
