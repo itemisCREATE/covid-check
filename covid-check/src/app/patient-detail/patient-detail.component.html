@@ -1,1 +1,67 @@
-<p>patient-detail works!</p>
+
+<table><tr><td>Hier Navigation zurück zur Übersicht</td><td><h1>Patient data of {{patient.firstname}} {{patient.lastname}}</h1></td></tr></table>
+<mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Personal data
+        </mat-panel-title>
+        <mat-panel-description>
+          #{{patient.filenumber}} : {{patient.firstname}} {{patient.lastname}}, {{patient.dateofbirth}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-form-field>
+        <mat-label>File No</mat-label>
+        <input matInput [value]="patient.filenumber">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>First name</mat-label>
+        <input matInput [value]="patient.firstname">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Last name</mat-label>
+        <input matInput [value]="patient.lastname">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>DateOfBirth</mat-label>
+        <input matInput [value]="patient.dateofbirth">
+      </mat-form-field>
+  
+    </mat-expansion-panel>    
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Address
+        </mat-panel-title>
+        <mat-panel-description>
+          {{patient.street}} {{patient.zip}}, {{patient.city}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>I'm visible because I am open</p>
+      <mat-form-field>
+        <mat-label>Street</mat-label>
+        <input matInput [value]="patient.street">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Zip</mat-label>
+        <input matInput  [value]="patient.zip">
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>City</mat-label>
+        <input matInput  [value]="patient.city">
+      </mat-form-field>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Examinations
+          </mat-panel-title>
+          <mat-panel-description>
+            1 ongoing examination
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        
+      </mat-expansion-panel>       
+  </mat-accordion>
