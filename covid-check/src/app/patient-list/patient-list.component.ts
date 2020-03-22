@@ -19,7 +19,7 @@ import { PatientStateService } from '../patient-state.service';
 })
 export class PatientListComponent implements OnInit {
   dataSource = new MatTableDataSource();
-  displayedColumns: string[] = ['fileNumber', 'firstname', 'lastname', 'dateOfBirth', 'street', 'zip', 'city'];
+  displayedColumns: string[] = ['filenumber', 'firstname', 'lastname', 'dateofbirth', 'street', 'zip', 'city'];
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
