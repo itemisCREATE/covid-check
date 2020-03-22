@@ -1,12 +1,14 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
+import 'credentials.ts';
+import { credentials } from './credentials';
 
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyAo0aT3edNeaJIHyDZ9ldX_9w8jt6LTukw",
-    mapsApiKey : "AIzaSyAKjZ7R205mqXgPURkW9n_iAcO3r3lMRFM",
+    apiKey: credentials.firebase.apiKey,
+    mapsApiKey : credentials.firebase.mapsApiKey,
     authDomain: "yakinduvirus.firebaseapp.com",
     databaseURL: "https://yakinduvirus.firebaseio.com",
     projectId: "yakinduvirus",
