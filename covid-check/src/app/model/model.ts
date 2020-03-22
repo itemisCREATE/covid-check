@@ -42,6 +42,27 @@ export interface Examination {
     currentSymptoms?: string;
     contactToSuspectPersons?: boolean;
     status: ExaminationStatus;
+    antworten: {
+        id?: string,
+        halsschmerzen: string,
+        wohnsituation: string,
+        arbeitsbereich: string,
+        verreist: string,
+        kontaktFall: string,
+        kontaktVerdacht: string,
+        fieber24: string,
+        fieber96: string,
+        schuettelfrost: string,
+        schlapp: string,
+        frage10: string,
+        gliederschmerzen: string,
+        husten: string,
+        schnupfen: string,
+        durchfall: string,
+        frage15: string,
+        kopfschmerzen: string,
+        lungenerkrankung: string,
+      };
 }
 export enum ProbeResult {
     unknown = 0,

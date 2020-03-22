@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Patient } from '../model/model';
 import { Timestamp } from 'rxjs/internal/operators/timestamp';
-import * as firebase from 'firebase';
+import * as firebase from 'firebase/app';
 import { PatientStateService } from '../patient-state.service';
 import { Router } from '@angular/router';
 import { PatientService } from '../service/patient.service';

@@ -17,6 +17,27 @@ export class CreateTestComponent implements OnInit {
 
   symptomdatepicker: MatDatepicker<Date>
   patient: Patient;
+  data = {
+    id: uuid(),
+    halsschmerzen: 'no',
+    wohnsituation: 'allein',
+    arbeitsbereich: 'nein',
+    verreist: 'no',
+    kontaktFall: 'no',
+    kontaktVerdacht: 'no',
+    fieber24: 'no',
+    fieber96: 'no',
+    schuettelfrost: 'no',
+    schlapp: 'no',
+    frage10: 'no',
+    gliederschmerzen: 'no',
+    husten: 'no',
+    schnupfen: 'no',
+    durchfall: 'no',
+    frage15: 'no',
+    kopfschmerzen: 'no',
+    lungenerkrankung: 'no',
+  };
 
   constructor(
     private dialogRef: MatDialogRef<CreateTestComponent>,
@@ -34,13 +55,13 @@ export class CreateTestComponent implements OnInit {
       date: database.ServerValue.TIMESTAMP.constructor(new Date()),
       filenumber: uuid(),
       status: ExaminationStatus.scheduled,
+      antworten: this.data,
     };
-    if(this.patient.examinations === undefined) {
+    if (this.patient.examinations === undefined) {
       this.patient.examinations = [];
     }
     this.patient.examinations.push(examination);
     this.patientService.update(this.patient);
     this.dialogRef.close();
   }
-
 }

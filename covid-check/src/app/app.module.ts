@@ -46,6 +46,7 @@ import 'firebase/storage';
 import { PatientDetailComponent } from './patient-detail/patient-detail.component';
 import { FormsModule } from '@angular/forms';
 import { ExaminationListComponent } from './examination-list/examination-list.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { ExaminationListComponent } from './examination-list/examination-list.co
     MatInputModule,
     MatButtonModule,
     MatExpansionModule,
+    MatSelectModule,
     MatToolbarModule,
     MatCheckboxModule,
     MatMenuModule,

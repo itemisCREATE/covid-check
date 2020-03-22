@@ -6,178 +6,178 @@
   <mat-step label="Frage 1"><br />
     <h3>Wie ist Ihre aktuelle Wohnsituation?</h3>
     <mat-form-field class="example-full-width">
-      <select matNativeControl required>
-        <option value="allein">Allein wohnend</option>
-        <option value="gemeinsam">Zusammen mit Familie oder Wohngemeinschaft</option>
-      </select>
+      <mat-select [(value)]='data.wohnsituation' matNativeControl required>
+        <mat-option value='allein'>Allein wohnend</mat-option>
+        <mat-option value="gemeinsam">Zusammen mit Familie oder Wohngemeinschaft</mat-option>
+      </mat-select>
     </mat-form-field>
   </mat-step>
   <!-- Frage 2 -->
   <mat-step label="Frage 2">
     <h3>Sind Sie in einem der folgenden Bereiche tätig?</h3>
     <mat-form-field class="example-full-width">
-      <select matNativeControl required>
-        <option value="med">Im medizinischen Bereich</option>
-        <option value="gemeinsam">In einer Gemeinschaftseinrichtung (Schule, Kita, Universität)</option>
-        <option value="nein">Nein</option>
-      </select>
+      <mat-select [(value)]='data.arbeitsbereich' matNativeControl required>
+        <mat-option value="med">Im medizinischen Bereich</mat-option>
+        <mat-option value="gemeinsam">In einer Gemeinschaftseinrichtung (Schule, Kita, Universität)</mat-option>
+        <mat-option value="nein">Nein</mat-option>
+      </mat-select>
     </mat-form-field>
   </mat-step>
   <!-- Frage 3 -->
   <mat-step label="Frage 3">
     <h3>Sind Sie in den letzten 4 Wochen verreist? (innerhalb Deutschlands oder ins Ausland)</h3>
     <mat-form-field class="example-full-width">
-      <select matNativeControl required>
-        <option value="yes">Ja</option>
-        <option value="no">Nein</option>
-      </select>
+      <mat-select [(value)]='data.verreist' matNativeControl required>
+        <mat-option value="yes">Ja</mat-option>
+        <mat-option value="no">Nein</mat-option>
+      </mat-select>
     </mat-form-field>
   </mat-step>
   <!-- Frage 4 -->
   <mat-step label="Frage 4">
     <h3>Hatten Sie engen Kontakt zu einem bestätigtem Fall?</h3>
     <mat-form-field class="example-full-width">
-      <select matNativeControl required>
-        <option value="yes">Ja</option>
-        <option value="no">Nein</option>
-      </select>
+      <mat-select [(value)]='data.kontaktFall' matNativeControl required>
+        <mat-option value="yes">Ja</mat-option>
+        <mat-option value="no">Nein</mat-option>
+      </mat-select>
     </mat-form-field>
   </mat-step>
   <!-- Frage 5 -->
   <mat-step label="Frage 5">
     <h3>Hatten Sie engen Kontakt zu einem Verdachtsfall?</h3>
     <mat-form-field class="example-full-width">
-      <select matNativeControl required>
-        <option value="yes">Ja</option>
-        <option value="no">Nein</option>
-      </select>
+      <mat-select [(value)]='data.kontaktVerdacht' matNativeControl required>
+        <mat-option value="yes">Ja</mat-option>
+        <mat-option value="no">Nein</mat-option>
+      </mat-select>
     </mat-form-field>
   </mat-step>
   <!-- Frage 6 -->
   <mat-step label="Frage 6">
     <h3>Hatten Sie Fieber (über 38 °C) in den letzten 24 Stunden?</h3>
     <mat-form-field class="example-full-width">
-      <select matNativeControl required>
-        <option value="yes">Ja</option>
-        <option value="no">Nein</option>
-      </select>
+      <mat-select [(value)]='data.fieber24' matNativeControl required>
+        <mat-option value="yes">Ja</mat-option>
+        <mat-option  value="no">Nein</mat-option>
+      </mat-select>
     </mat-form-field>
   </mat-step>
   <!-- Frage 7 -->
   <mat-step label="Frage 7">
     <h3>Hatten Sie Fieber (über 38 °C) in den letzten 4 Tagen?</h3>
     <mat-form-field class="example-full-width">
-      <select matNativeControl required>
-        <option value="yes">Ja</option>
-        <option value="no">Nein</option>
-      </select>
+      <mat-select [(value)]='data.fieber96' matNativeControl required>
+        <mat-option value="yes">Ja</mat-option>
+        <mat-option  value="no">Nein</mat-option>
+      </mat-select>
     </mat-form-field>
   </mat-step>
   <!-- Frage 8 -->
   <mat-step label="Frage 8">
     <h3>Haben Sie Schüttelfrost?</h3>
     <mat-form-field class="example-full-width">
-      <select matNativeControl required>
-        <option value="yes">Ja</option>
-        <option value="no">Nein</option>
-      </select>
+      <mat-select [(value)]='data.schuettelfrost' matNativeControl required>
+        <mat-option value="yes">Ja</mat-option>
+        <mat-option  value="no">Nein</mat-option>
+      </mat-select>
     </mat-form-field>
   </mat-step>
   <!-- Frage 9 -->
   <mat-step label="Frage 9">
     <h3>Fühlen Sie sich schlapp oder abgeschlagen?</h3>
     <mat-form-field class="example-full-width">
-      <select matNativeControl required>
-        <option value="yes">Ja</option>
-        <option value="no">Nein</option>
-      </select>
+      <mat-select [(value)]='data.schlapp' matNativeControl required>
+        <mat-option value="yes">Ja</mat-option>
+        <mat-option  value="no">Nein</mat-option>
+      </mat-select>
     </mat-form-field>
   </mat-step>
   <!-- Frage 10 -->
   <mat-step label="Frage 10">
     <h3>Fühlen Sie sich schlapp oder abgeschlagen?</h3>
     <mat-form-field class="example-full-width">
-      <select matNativeControl required>
-        <option value="yes">Ja</option>
-        <option value="no">Nein</option>
-      </select>
+      <mat-select [(value)]='data.frage10' matNativeControl required>
+        <mat-option value="yes">Ja</mat-option>
+        <mat-option  value="no">Nein</mat-option>
+      </mat-select>
     </mat-form-field>
   </mat-step>
   <!-- Frage 11 -->
   <mat-step label="Frage 10">
     <h3>Haben Sie Gliederschmerzen?</h3>
     <mat-form-field class="example-full-width"> 
-      <select matNativeControl required>
-        <option value="yes">Ja</option>
-        <option value="no">Nein</option>
-      </select>
+      <mat-select [(value)]='data.gliederschmerzen' matNativeControl required>
+        <mat-option value="yes">Ja</mat-option>
+        <mat-option  value="no">Nein</mat-option>
+      </mat-select>
     </mat-form-field>
   </mat-step>
   <!-- Frage 12 -->
   <mat-step label="Frage 10">
     <h3>Haben Sie anhaltenden Husten?</h3>
     <mat-form-field class="example-full-width">
-      <select matNativeControl required>
-        <option value="yes">Ja</option>
-        <option value="no">Nein</option>
-      </select>
+      <mat-select [(value)]='data.husten' matNativeControl required>
+        <mat-option value="yes">Ja</mat-option>
+        <mat-option  value="no">Nein</mat-option>
+      </mat-select>
     </mat-form-field>
   </mat-step>
   <!-- Frage 13 -->
   <mat-step label="Frage 10">
     <h3>Haben Sie Schnupfen?</h3>
     <mat-form-field class="example-full-width">
-      <select matNativeControl required>
-        <option value="yes">Ja</option>
-        <option value="no">Nein</option>
-      </select>
+      <mat-select [(value)]='data.schnupfen' matNativeControl required>
+        <mat-option value="yes">Ja</mat-option>
+        <mat-option  value="no">Nein</mat-option>
+      </mat-select>
     </mat-form-field>
   </mat-step>
   <!-- Frage 14 -->
   <mat-step label="Frage 10">
     <h3>Haben Sie Durchfall?</h3>
     <mat-form-field class="example-full-width">
-      <select matNativeControl required>
-        <option value="yes">Ja</option>
-        <option value="no">Nein</option>
-      </select>
+      <mat-select [(value)]='data.durchfall' matNativeControl required>
+        <mat-option value="yes">Ja</mat-option>
+        <mat-option  value="no">Nein</mat-option>
+      </mat-select>
     </mat-form-field>
   </mat-step>
   <!-- Frage 15 -->
   <mat-step label="Frage 10">
     <h3>Haben Sie Halsschmerzen?</h3>
     <mat-form-field class="example-full-width">
-      <select matNativeControl required>
-        <option value="yes">Ja</option>
-        <option value="no">Nein</option>
-      </select>
+      <mat-select [(value)]='data.frage15' matNativeControl required>
+        <mat-option value="yes">Ja</mat-option>
+        <mat-option  value="no">Nein</mat-option>
+      </mat-select>
     </mat-form-field>
   </mat-step>
   <!-- Frage 16 -->
   <mat-step label="Frage 10">
     <h3>Haben Sie Kopfschmerzen?</h3>
     <mat-form-field class="example-full-width">
-      <select matNativeControl required>
-        <option value="yes">Ja</option>
-        <option value="no">Nein</option>
-      </select>
+      <mat-select [(value)]='data.kopfschmerzen' matNativeControl required>
+        <mat-option value="yes">Ja</mat-option>
+        <mat-option  value="no">Nein</mat-option>
+      </mat-select>
     </mat-form-field>
   </mat-step>
   <!-- Frage 16 -->
   <mat-step label="Frage 10">
     <h3>Wurde bei Ihnen eine chronische Lungenerkrankung diagnostiziert?</h3>
     <mat-form-field>
-      <select matNativeControl required>
-        <option value="yes">Ja</option>
-        <option value="no">Nein</option>
-        <option value="no">Ich weiss es nicht</option>
-      </select>
+      <mat-select [(value)]='data.lungenerkrankung' matNativeControl required>
+        <mat-option value="yes">Ja</mat-option>
+        <mat-option value="no">Nein</mat-option>
+        <mat-option  value="no">Ich weiss es nicht</mat-option>
+      </mat-select>
     </mat-form-field>
   </mat-step>
 
   <mat-step label="Ergebnis">
     <h3>Ein Test sollte durchgeführt werden. Bitte kleben Sie den folgenden QR Code auf die Probe.</h3>
-        <qr-code [value]="'Data'" [size]="150"></qr-code>
+        <qr-code [value]="data.id" [size]="150"></qr-code>
   </mat-step>
 </mat-horizontal-stepper>
 <mat-dialog-actions align="end">
