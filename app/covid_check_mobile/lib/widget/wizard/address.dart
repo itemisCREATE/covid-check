@@ -41,7 +41,7 @@ class AddressFormState extends State<AddressForm> {
                     FormTitle("Anschrift", index),
                     SizedBox(height: 20.0),
                     TextFormField(
-                        onChanged: (value) => patient.address = value,
+                        onChanged: (value) => patient.street = value,
                         keyboardType: TextInputType.text,
                         decoration:
                             InputDecoration(labelText: "Addresse")),

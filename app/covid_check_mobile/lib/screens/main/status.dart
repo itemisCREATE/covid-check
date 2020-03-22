@@ -118,7 +118,7 @@ class Status extends StatelessWidget {
                       SizedBox(height: 5.0),
                       Row(
                         children: <Widget>[
-                          Text("${patient.address}"),
+                          Text("${patient.street}"),
                         ],
                       ),
                       Row(

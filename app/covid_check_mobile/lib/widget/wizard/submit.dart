@@ -74,7 +74,7 @@ class SubmitFormState extends State<SubmitForm>{
                                   Column(
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     children: <Widget>[
-                                      Text("${patient.address}"), 
+                                      Text("${patient.street}"),
                                       Text("${patient.zip} ${patient.city}")
                                     ],
                                   )
