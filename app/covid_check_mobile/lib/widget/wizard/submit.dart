@@ -49,7 +49,7 @@ class SubmitFormState extends State<SubmitForm>{
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        FormTitle("Übermitteln Sie ihre Daten um Terminvorschläge zu erhalten", index),
+                        FormTitle("Übermitteln Sie Ihre Daten um Terminvorschläge zu erhalten", index),
                         SizedBox(height: 20.0),
                         Container(
                           padding: const EdgeInsets.all(10.0),

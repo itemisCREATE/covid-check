@@ -26,7 +26,9 @@ class NameFormState extends State<NameForm>{
   final int index;
   
   String title;
+
   DateTime _selectedDate = DateTime.now();
+  Gender _selectedGender = Gender.d;
 
   NameFormState(this.index, this.controller);
 
@@ -47,7 +49,7 @@ class NameFormState extends State<NameForm>{
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        FormTitle("Anrede und Name", index),
+                        FormTitle("Bitte geben Sie Ihre Daten ein", index),
                         SizedBox(height: 20.0),
                         TextFormField(
                             onChanged: (value) => patient.firstname = value,
@@ -66,6 +68,33 @@ class NameFormState extends State<NameForm>{
                             SizedBox(width: 20.0),
                             Text(DateFormat.yMMMEd().format(_selectedDate)),
                           ]),
+                        ),
+                        SizedBox(height: 30.0),
+                        Row(
+                          children: <Widget>[
+                            DropdownButton(
+                              icon: _genderIcon(), 
+                              value: _selectedGender,
+                              onChanged: (value) => setState(() {
+                                _selectedGender = value;
+                                patient.gender = value;
+                              }),
+                              items: [
+                                DropdownMenuItem(
+                                  value: Gender.m,
+                                  child: new Text("männlich"),
+                                ),
+                                DropdownMenuItem(
+                                  value: Gender.f,
+                                  child: new Text("weiblich"),
+                                ),
+                                DropdownMenuItem(
+                                  value: Gender.d,
+                                  child: new Text("divers"),
+                                )
+                              ]
+                            ),
+                          ],
                         )
                       ]
                   )
@@ -75,6 +104,19 @@ class NameFormState extends State<NameForm>{
       ),
     );
   }
+
+  Icon _genderIcon() {
+    switch (_selectedGender) {
+      case Gender.m:
+        return Icon(FontAwesomeIcons.male);
+      case Gender.f:
+        return Icon(FontAwesomeIcons.female);
+      case Gender.d:  
+        return Icon(FontAwesomeIcons.genderless);
+      default:
+        return Icon(FontAwesomeIcons.genderless);
+    }
+  } 
 
   Future<Null> _selectDate(BuildContext context) async {
     Patient patient = Wizard.of(context).patient;
@@ -90,5 +132,4 @@ class NameFormState extends State<NameForm>{
         patient.dateofbirth = Timestamp.fromMicrosecondsSinceEpoch(_selectedDate.millisecondsSinceEpoch);
       });
   }
-
 }
