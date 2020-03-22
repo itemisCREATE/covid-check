@@ -16,8 +16,15 @@ void main() => runApp(ChangeNotifierProvider<Authentication>(
     ));
 
 class CovidCheck extends StatelessWidget {
+
+  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+
   @override
   Widget build(BuildContext context) {
+
+    _firebaseMessaging.requestNotificationPermissions();
+    _firebaseMessaging.configure();
+
     return MaterialApp(
       title: 'CovidCheck',
       theme: ThemeData(
@@ -46,13 +53,11 @@ class CovidCheckHome extends StatefulWidget {
 
 class _CovidCheckHomeState extends State<CovidCheckHome> {
 
-  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+
 
 
   @override
   Widget build(BuildContext context) {
-    _firebaseMessaging.requestNotificationPermissions();
-    _firebaseMessaging.configure();
 
     return FutureBuilder<FirebaseUser>(
       future: Provider.of<Authentication>(context).getUser(),

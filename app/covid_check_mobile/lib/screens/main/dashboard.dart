@@ -26,8 +26,8 @@ class DashboardState extends State<Dashboard> {
     // XXX: Just for testing without login
     // return _showContent(new Patient());
 
-    return FutureBuilder(
-        future: service.getPatient(user.uid),
+    return StreamBuilder(
+        stream: service.getPatient(user.uid),
         builder: (context, snapshot) {
            if(snapshot.hasError){
              return Wizard(this.user);
@@ -41,9 +41,10 @@ class DashboardState extends State<Dashboard> {
     if(patient == null){
       return Wizard(this.user);
     }
-    if(patient.needsTesting) {
-      return TestStatus(this.user, patient);
-    }
     return Status(this.user, patient);
+//    if(patient.needsTesting) {
+//      return TestStatus(this.user, patient);
+//    }
+
   }
 }
