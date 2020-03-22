@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../screens/wizard/wizard.dart';
+import '../../model/patient.dart';
+
 import 'title.dart';
 
 class Question extends StatefulWidget {
@@ -29,6 +32,8 @@ class QuestionState extends State<Question>{
 
   @override
   Widget build(BuildContext context) {
+    Patient patient = Wizard.of(context).patient;
+
     return Scaffold(
       body: ListView(
         shrinkWrap: true,
@@ -53,6 +58,7 @@ class QuestionState extends State<Question>{
                                     onChanged: (newValue){
                                       setState(() {
                                         symptoms = newValue;
+                                        patient.needsTesting = patient.needsTesting || symptoms;
                                       });
                                     }
                                 )
@@ -67,6 +73,7 @@ class QuestionState extends State<Question>{
                                     onChanged: (newValue){
                                       setState(() {
                                         contact = newValue;
+                                        patient.needsTesting = patient.needsTesting || symptoms;
                                       });
                                     }
                                 )
@@ -81,6 +88,7 @@ class QuestionState extends State<Question>{
                                       onChanged: (newValue){
                                         setState(() {
                                           riskarea = newValue;
+                                          patient.needsTesting = patient.needsTesting || symptoms;
                                         });
                                       }
                                   ),

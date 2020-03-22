@@ -1,5 +1,6 @@
 import 'package:covidcheckmobile/model/patient.dart';
 import 'package:covidcheckmobile/screens/main/status.dart';
+import 'package:covidcheckmobile/screens/main/test_status.dart';
 import 'package:covidcheckmobile/screens/wizard/wizard.dart';
 import 'package:covidcheckmobile/service/patient_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -22,6 +23,9 @@ class DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
+    // XXX: Just for testing without login
+    // return _showContent(new Patient());
+
     return FutureBuilder(
         future: service.getPatient(user.uid),
         builder: (context, snapshot) {
@@ -36,6 +40,9 @@ class DashboardState extends State<Dashboard> {
   Widget _showContent(Patient patient){
     if(patient == null){
       return Wizard(this.user);
+    }
+    if(patient.needsTesting) {
+      return TestStatus(this.user, patient);
     }
     return Status(this.user, patient);
   }

@@ -12,6 +12,9 @@ class Patient {
    Gender gender;
    List<Examination> examinations;
 
+   // TODO: add to DB
+   bool needsTesting = true;
+
   Patient(
       {this.id,
       this.filenumber,
