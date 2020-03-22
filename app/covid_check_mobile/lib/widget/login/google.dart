@@ -17,6 +17,7 @@ class GoogleLoginState extends State<GoogleLogin> {
       child: GoogleSignInButton(
         onPressed: () {
           _signInWithGoogle().then((value) => setState(()=> this.user = value));
+          Navigator.of(context).pop();
         },
       ),
     );

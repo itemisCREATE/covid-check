@@ -28,8 +28,15 @@ class DashboardState extends State<Dashboard> {
            if(snapshot.hasError){
              return Wizard(this.user);
            }
-           return snapshot.hasData ? Wizard(this.user) : Center(child:CircularProgressIndicator());
+           return snapshot.hasData ? _showContent(snapshot.data) : Center(child:CircularProgressIndicator());
         }
     );
+  }
+
+  Widget _showContent(Patient patient){
+    if(patient == null){
+      return Wizard(this.user);
+    }
+    return Status(this.user, patient);
   }
 }
