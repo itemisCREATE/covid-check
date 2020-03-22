@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Patient } from '../model/model';
 import { Timestamp } from 'rxjs/internal/operators/timestamp';
 import * as firebase from 'firebase';
+import { PatientStateService } from '../patient-state.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-patient-detail',
@@ -10,21 +12,19 @@ import * as firebase from 'firebase';
 })
 export class PatientDetailComponent implements OnInit {
 
-  patient: Patient ;
+  patient: Patient;
   panelOpenState = false;
 
-  constructor() {
-    this.patient = {id:'1'
-    , filenumber:'2341234'
-    , firstname:'Kuno'
-    , lastname:'Klötzer'
-    , dateofbirth:firebase.firestore.Timestamp.now()
-    , street:"Am Waldweg"
-    , zip: "12345"
-    , city: "Hintertupfingen"}
-   }
+  constructor(private patientService: PatientStateService, private router: Router) {
+  }
 
   ngOnInit(): void {
+    this.patient = this.patientService.patient;
+  }
+
+  back(){
+    this.patientService.patient = null;
+    this.router.navigate(['/patients']);
   }
 
 }
