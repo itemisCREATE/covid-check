@@ -73,6 +73,7 @@ import { ExaminationListComponent } from './examination-list/examination-list.co
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    MatButtonModule,
     MatIconModule,
     MatListModule,
     MatInputModule,

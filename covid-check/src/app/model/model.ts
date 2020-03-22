@@ -51,8 +51,8 @@ export enum ProbeResult {
 
 export interface Probe {
     creationDate: firebase.firestore.Timestamp;
-    examinationDate: firebase.firestore.Timestamp;
-    result: ProbeResult;
-    id: string;
+    examinationDate?: firebase.firestore.Timestamp;
+    result?: ProbeResult;
+    id?: string;
 }
 

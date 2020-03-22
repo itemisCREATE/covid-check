@@ -37,7 +37,6 @@ export class PatientListComponent implements OnInit {
 
   dateOfBirthNullSafe(p: Patient) {
     if (p.dateofbirth !== undefined) {
-      console.log(p)
       return p.dateofbirth.toDate();
     } else {
       return null;
