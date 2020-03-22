@@ -3,7 +3,9 @@ Our contribution for the german https://wirvsvirushackathon.org/
 Covid-Check is a collaboration platform for patients, doctors and other medical stuff written in angular/typscript.
 Mobil Apps for patients written in Flutter are also available.
 
-![Alt text](/documentation/screenshots/screenshot.png?raw=true)
+![Alt text](/documentation/screenshots/screenshot.PNG?raw=true)
+
+![Alt text](/documentation/screenshots/screenshot1.PNG?raw=true)
 
 # CovidCheck
 
@@ -32,3 +34,4 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
