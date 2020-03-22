@@ -16,25 +16,26 @@
          Persönliche Daten
         </mat-panel-title>
         <mat-panel-description>
-          #{{patient.filenumber}} : {{patient.firstname}} {{patient.lastname}}, {{patient.dateofbirth}}
+         <!-- #{{patient.filenumber}} : {{patient.firstname}} {{patient.lastname}}, {{patient.dateofbirth}} -->
         </mat-panel-description>
       </mat-expansion-panel-header>
       <mat-form-field class="example-full-width">
         <mat-label>Aktenzeichen</mat-label>
-        <input matInput [value]="patient.filenumber">
+        <input matInput [(ngModel)]="patient.filenumber">
       </mat-form-field>
       <mat-form-field class="example-full-width">
         <mat-label>Vorname</mat-label>
-        <input matInput [value]="patient.firstname">
+        <input matInput [(ngModel)]="patient.firstname">
       </mat-form-field>
       <mat-form-field class="example-full-width">
         <mat-label>Nachname</mat-label>
-        <input matInput [value]="patient.lastname">
+        <input matInput [(ngModel)]="patient.lastname">
       </mat-form-field>
       <mat-form-field class="example-full-width">
         <mat-label>Geburtstag</mat-label>
-        <input matInput [value]="patient.dateofbirth">
+        <input matInput [(ngModel)]="patient.dateofbirth">
       </mat-form-field>
+      <button mat-flat-button color="primary" (click)='update()'>speichern</button>
   
     </mat-expansion-panel>    
     <mat-expansion-panel (opened)="panelOpenState = true"

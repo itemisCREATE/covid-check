@@ -1,5 +1,5 @@
 export interface Patient {
-    id: string;
+    id: string; //technical ID for firebase -> internal use only
     // inspired by RKI form = Aktenzeichen
     filenumber: string;
     firstname: string;

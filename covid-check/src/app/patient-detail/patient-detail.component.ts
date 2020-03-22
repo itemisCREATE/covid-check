@@ -4,6 +4,7 @@ import { Timestamp } from 'rxjs/internal/operators/timestamp';
 import * as firebase from 'firebase';
 import { PatientStateService } from '../patient-state.service';
 import { Router } from '@angular/router';
+import { PatientService } from '../service/patient.service';
 
 @Component({
   selector: 'app-patient-detail',
@@ -15,16 +16,20 @@ export class PatientDetailComponent implements OnInit {
   patient: Patient;
   panelOpenState = false;
 
-  constructor(private patientService: PatientStateService, private router: Router) {
+  constructor(private stateService: PatientStateService, private patientService: PatientService,  private router: Router) {
   }
 
   ngOnInit(): void {
-    this.patient = this.patientService.patient;
+    this.patient = this.stateService.patient;
   }
 
   back(){
-    this.patientService.patient = null;
+    this.stateService.patient = null;
     this.router.navigate(['/patients']);
+  }
+
+  save(){
+    this.patientService.update(this.patient)
   }
 
 }
